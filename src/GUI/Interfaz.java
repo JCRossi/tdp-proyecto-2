@@ -39,7 +39,7 @@ public class Interfaz extends JFrame {
 	 * Create the frame.
 	 */
 	public Interfaz() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("F:\\Universidad\\TdP\\Proyectos\\Workspace\\TdP_Proyecto2\\src\\images\\icono tetris 2.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/icono tetris 2.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 514, 382);
 		contentPane = new JPanel();
