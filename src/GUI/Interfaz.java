@@ -1,5 +1,7 @@
 package GUI;
 
+import Logica.*;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -12,6 +14,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 
 public class Interfaz extends JFrame {
 
@@ -47,10 +51,31 @@ public class Interfaz extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.BLACK);
-		panel.setBounds(124, 0, 250, 343);
-		contentPane.add(panel);
-		panel.setLayout(new GridLayout(1, 0, 0, 0));
+		JPanel panelGrilla = new JPanel();
+		panelGrilla.setBackground(Color.BLACK);
+		panelGrilla.setBounds(124, 0, 250, 343);
+		contentPane.add(panelGrilla);
+		panelGrilla.setLayout(new GridLayout(1, 0, 0, 0));
+		
+		//Detecta acciones de teclado
+		/*KeyListener eventoTeclado = new KeyListener() {
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				System.out.println("Se apreto la tecla con codigo:"+e.getKeyCode());
+			}
+		};
+		
+		panelGrilla.addKeyListener(eventoTeclado);*/
 	}
 }
