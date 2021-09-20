@@ -18,4 +18,26 @@ public class Grilla {
 				matriz[i][j] = null;
 	}
 	
+	public boolean chequearColision(char direccion) {
+		boolean colisiona = false;
+		
+		switch(direccion) {
+			case 'A' :
+				//Colision caida/movimiento para abajo
+			case 'D' :
+				//Colision movimiento a derecha
+			case 'I' :
+				//Colision movimiento a izquierda
+		}
+		
+		return colisiona;
+	}
+	
+	public int despejar() {
+		int filasDespejadas = 0;
+		
+		
+		
+		return filasDespejadas;
+	}
 }
