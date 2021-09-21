@@ -18,19 +18,14 @@ public class Grilla {
 				matriz[i][j] = null;
 	}
 	
-	public boolean chequearColision(char direccion) {
-		boolean colisiona = false;
+	public void chequearColision(char direccion) {
+		boolean colisiona = actual.checkmovement(direccion);
 		
-		switch(direccion) {
-			case 'A' :
-				//Colision caida/movimiento para abajo
-			case 'D' :
-				//Colision movimiento a derecha
-			case 'I' :
-				//Colision movimiento a izquierda
-		}
-		
-		return colisiona;
+		if (!colisiona)
+			actual.movement(direccion);
+		else if (direccion=='d')
+			// aca va la llamada a chequear la definicion de las lineas pq colisiono hacia abajo 
+		;
 	}
 	
 	public int despejar() {
@@ -39,5 +34,9 @@ public class Grilla {
 		
 		
 		return filasDespejadas;
+	}
+	
+	public static boolean avaiableSpace(int R, int C) {
+		return matriz[R][C]==null;
 	}
 }
