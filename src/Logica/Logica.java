@@ -66,4 +66,10 @@ public class Logica {
 	public void finalizarJuego() {
 		
 	}
+
+	//Este método recibe el tiempo directamente desde el reloj y actualiza a la GUI
+	public void ActualizarRelojGui(int minutos, int segundos) {
+		// TODO Auto-generated method stub
+		
+	}
 }

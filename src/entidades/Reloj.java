@@ -28,14 +28,35 @@ public class Reloj implements Runnable {
 	@Override
 	public void run() {
 		try {
+			int sumatoriaParaAumentarSegundos = 0;
+			int faltanteParaSegundo = 0;
 			while(true) {
+				//Me fijo la cantidad de veces que entra una caida en un segundo y las ejecuto
+				while((sumatoriaParaAumentarSegundos+velocidadCaida)<=1000 ){
+					Thread.sleep(velocidadCaida);
+					avisarCaidaTetrimino();
+					sumatoriaParaAumentarSegundos= (int) (sumatoriaParaAumentarSegundos +velocidadCaida);
+				}
+				//Hago una pausa hasta completar un segundo y lo sumo al contador de segundos 
+				faltanteParaSegundo = 1000-sumatoriaParaAumentarSegundos;
+				Thread.sleep(faltanteParaSegundo);
+				
+				//Guardo la diferencia entre la pausa para completar el segundo y el tiempo a esperar para la siguiente caida
+				sumatoriaParaAumentarSegundos = (int) (velocidadCaida - faltanteParaSegundo);
+				
 				if(segundos == 59) {
 					avisarPasaUnMinuto();
-				}else
-					segundos++;
+				}else 
+					avisarPasaUnSegundo();
+
 				
-				avisarCaidaTetrimino();
-				Thread.sleep(velocidadCaida);
+				
+				//Si tengo diferencia la espero y aviso caida del tetrimino
+				if(sumatoriaParaAumentarSegundos != 0) {
+					Thread.sleep(sumatoriaParaAumentarSegundos);
+					avisarCaidaTetrimino();
+				}
+
 			}
 			
 		} catch (InterruptedException e) {
@@ -54,7 +75,15 @@ public class Reloj implements Runnable {
 		segundos = 0;
 		minutos++;
 		velocidadCaida = (long) (velocidadCaida * 0.75);
+		juego.ActualizarRelojGui(minutos,segundos);
 	}
+	
+	public void avisarPasaUnSegundo() {
+		segundos++;
+		juego.ActualizarRelojGui(minutos, segundos);
+	}
+	
+	
 	
 	public int getMinutos(){
 		return minutos;
