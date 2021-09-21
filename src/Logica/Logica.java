@@ -19,7 +19,7 @@ public class Logica {
 	public void caer() {
 		boolean puedeCaer;
 		int filasCompletadas;
-		puedeCaer = grilla.chequearColision('d');
+		puedeCaer = !grilla.chequearColision('d');
 		filasCompletadas = 0;
 		
 		if(puedeCaer) {
@@ -39,7 +39,7 @@ public class Logica {
 	 * 
 	 */
 	public void moverADerecha() {
-		boolean sePuedeMover = grilla.chequearColision('r');
+		boolean sePuedeMover = !grilla.chequearColision('r');
 		
 		if(sePuedeMover)
 			grilla.move('r');

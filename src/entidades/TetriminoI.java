@@ -10,7 +10,7 @@ public class TetriminoI extends Tetrimino{
 	}
 	
 	@Override
-	boolean checkmovement(char m) {
+	protected boolean checkMovementCollision(char m) {
 		boolean collision = false;
 		
 		// checkeo la rotacion actual de la ficha
@@ -242,7 +242,7 @@ public class TetriminoI extends Tetrimino{
 	}
 
 	@Override
-	void movement(char m) {
+	protected void movement(char m) {
 		switch(m) {
 		
 		case 'd':{
@@ -281,15 +281,300 @@ public class TetriminoI extends Tetrimino{
 	}
 
 	@Override
-	boolean checkrotation(char m) {
-		// TODO Auto-generated method stub
-		return false;
+	protected boolean checkRotationCollision(char m) {
+		boolean collision=false;
+		//checkeo hacia donde es la rotacion que se desea realizar ( r = "rotate right", l = "rotate left" )
+		switch(rotation) {
+		
+		case 0:{
+			switch(m) {
+			
+			case 'l':{
+				int row = blocks[0].getFila();
+				int column = blocks[0].getColumna();
+				if(!(column-2>=0 && Grilla.availableSpace(row+2, column-2)))
+					collision=true;
+				row = blocks[1].getFila();
+				column = blocks[1].getColumna();
+				if(!Grilla.availableSpace(row+1, column-1))
+					collision=true;
+				row = blocks[3].getFila();
+				column = blocks[3].getColumna();
+				if(!(column+1<10 && Grilla.availableSpace(row+1, column+1)))
+					collision=true;
+
+			}
+			
+			case 'r':{
+				int row = blocks[0].getFila();
+				int column = blocks[0].getColumna();
+				if(!(column+2<10 && Grilla.availableSpace(row+2, column+2)))
+					collision=true;
+				row = blocks[1].getFila();
+				column = blocks[1].getColumna();
+				if(!Grilla.availableSpace(row+1, column+1))
+					collision=true;
+				row = blocks[3].getFila();
+				column = blocks[3].getColumna();
+				if(!(column+1<10 && Grilla.availableSpace(row-1, column-1)))
+					collision=true;
+
+			}
+				
+			}
+		}
+		
+		case 90:{
+			switch(m) {
+			
+			case 'l':{
+				int row = blocks[0].getFila();
+				int column = blocks[0].getColumna();
+				if(!(row-2>=0 && Grilla.availableSpace(row-2, column-2)))
+					collision=true;
+				row = blocks[1].getFila();
+				column = blocks[1].getColumna();
+				if(!Grilla.availableSpace(row-1, column-1))
+					collision=true;
+				row = blocks[3].getFila();
+				column = blocks[3].getColumna();
+				if(!(row+1<21 && Grilla.availableSpace(row+1, column+1)))
+					collision=true;
+
+			}
+			
+			case 'r':{
+				int row = blocks[0].getFila();
+				int column = blocks[0].getColumna();
+				if(!(row+2<21 && Grilla.availableSpace(row+2, column-2)))
+					collision=true;
+				row = blocks[1].getFila();
+				column = blocks[1].getColumna();
+				if(!Grilla.availableSpace(row+1, column-1))
+					collision=true;
+				row = blocks[3].getFila();
+				column = blocks[3].getColumna();
+				if(!(row-1>=0 && Grilla.availableSpace(row-1, column+1)))
+					collision=true;
+				
+			}
+				
+			}
+		}
+		
+		case 180:{
+			switch(m) {
+			
+			case 'l':{
+				int row = blocks[0].getFila();
+				int column = blocks[0].getColumna();
+				if(!(column+2<10 && Grilla.availableSpace(row-2, column+2)))
+					collision=true;
+				row = blocks[1].getFila();
+				column = blocks[1].getColumna();
+				if(!Grilla.availableSpace(row-1, column+1))
+					collision=true;
+				row = blocks[3].getFila();
+				column = blocks[3].getColumna();
+				if(!(column-1>=0 && Grilla.availableSpace(row+1, column-1)))
+					collision=true;
+				
+			}
+			
+			case 'r':{
+				int row = blocks[0].getFila();
+				int column = blocks[0].getColumna();
+				if(!(column-2>=0 && Grilla.availableSpace(row-2, column-2)))
+					collision=true;
+				row = blocks[1].getFila();
+				column = blocks[1].getColumna();
+				if(!Grilla.availableSpace(row-1, column-1))
+					collision=true;
+				row = blocks[3].getFila();
+				column = blocks[3].getColumna();
+				if(!(column+1<10 && Grilla.availableSpace(row+1, column+1)))
+					collision=true;
+				
+			}
+				
+			}
+		}
+		
+		case 270:{
+			switch(m) {
+			
+			case 'l':{
+				int row = blocks[0].getFila();
+				int column = blocks[0].getColumna();
+				if(!(row+2<21 && Grilla.availableSpace(row+2, column+2)))
+					collision=true;
+				row = blocks[1].getFila();
+				column = blocks[1].getColumna();
+				if(!Grilla.availableSpace(row+1, column+1))
+					collision=true;
+				row = blocks[3].getFila();
+				column = blocks[3].getColumna();
+				if(!(row-1>=0 && Grilla.availableSpace(row-1, column-1)))
+					collision=true;
+
+			}
+			
+			case 'r':{
+				int row = blocks[0].getFila();
+				int column = blocks[0].getColumna();
+				if(!(row-2>=0 && Grilla.availableSpace(row-2, column+2)))
+					collision=true;
+				row = blocks[1].getFila();
+				column = blocks[1].getColumna();
+				if(!Grilla.availableSpace(row-1, column+1))
+					collision=true;
+				row = blocks[3].getFila();
+				column = blocks[3].getColumna();
+				if(!(row+1<21 && Grilla.availableSpace(row+1, column-1)))
+					collision=true;
+				
+			}
+				
+			}
+		}
+			
+		}
+		return collision;
 	}
 
 	@Override
-	boolean rotation(char m) {
-		// TODO Auto-generated method stub
-		return false;
+	protected void rotation(char m) {
+		switch(rotation) {
+		
+		case 0:{
+			switch(m) {
+			
+			case 'l':{
+				Bloque actualBlock= blocks[0];
+				actualBlock.setFila(actualBlock.getFila()+2);
+				actualBlock.setColumna(actualBlock.getColumna()-2);
+				actualBlock= blocks[1];
+				actualBlock.setFila(actualBlock.getFila()+1);
+				actualBlock.setColumna(actualBlock.getColumna()-1);
+				actualBlock= blocks[3];
+				actualBlock.setFila(actualBlock.getFila()-1);
+				actualBlock.setColumna(actualBlock.getColumna()+1);
+				rotation=270;
+			}
+			
+			case 'r':{
+				Bloque actualBlock= blocks[0];
+				actualBlock.setFila(actualBlock.getFila()+2);
+				actualBlock.setColumna(actualBlock.getColumna()+2);
+				actualBlock= blocks[1];
+				actualBlock.setFila(actualBlock.getFila()+1);
+				actualBlock.setColumna(actualBlock.getColumna()+1);
+				actualBlock= blocks[3];
+				actualBlock.setFila(actualBlock.getFila()-1);
+				actualBlock.setColumna(actualBlock.getColumna()-1);
+				rotation=90;
+			}
+			
+			}
+		}
+		
+		case 90:{
+			switch(m) {
+			
+			case 'l':{
+				Bloque actualBlock= blocks[0];
+				actualBlock.setFila(actualBlock.getFila()-2);
+				actualBlock.setColumna(actualBlock.getColumna()-2);
+				actualBlock= blocks[1];
+				actualBlock.setFila(actualBlock.getFila()-1);
+				actualBlock.setColumna(actualBlock.getColumna()-1);
+				actualBlock= blocks[3];
+				actualBlock.setFila(actualBlock.getFila()+1);
+				actualBlock.setColumna(actualBlock.getColumna()+1);
+				rotation=0;
+			}
+			
+			case 'r':{
+				Bloque actualBlock= blocks[0];
+				actualBlock.setFila(actualBlock.getFila()+2);
+				actualBlock.setColumna(actualBlock.getColumna()-2);
+				actualBlock= blocks[1];
+				actualBlock.setFila(actualBlock.getFila()+1);
+				actualBlock.setColumna(actualBlock.getColumna()-1);
+				actualBlock= blocks[3];
+				actualBlock.setFila(actualBlock.getFila()-1);
+				actualBlock.setColumna(actualBlock.getColumna()+1);
+				rotation=180;
+			}
+			
+			}
+		}
+		
+		case 180:{
+			switch(m) {
+			
+			case 'l':{
+				Bloque actualBlock= blocks[0];
+				actualBlock.setFila(actualBlock.getFila()-2);
+				actualBlock.setColumna(actualBlock.getColumna()+2);
+				actualBlock= blocks[1];
+				actualBlock.setFila(actualBlock.getFila()-1);
+				actualBlock.setColumna(actualBlock.getColumna()+1);
+				actualBlock= blocks[3];
+				actualBlock.setFila(actualBlock.getFila()+1);
+				actualBlock.setColumna(actualBlock.getColumna()-1);
+				rotation=90;
+			}
+			
+			case 'r':{
+				Bloque actualBlock= blocks[0];
+				actualBlock.setFila(actualBlock.getFila()-2);
+				actualBlock.setColumna(actualBlock.getColumna()-2);
+				actualBlock= blocks[1];
+				actualBlock.setFila(actualBlock.getFila()-1);
+				actualBlock.setColumna(actualBlock.getColumna()-1);
+				actualBlock= blocks[3];
+				actualBlock.setFila(actualBlock.getFila()+1);
+				actualBlock.setColumna(actualBlock.getColumna()+1);
+				rotation=270;
+			}
+			
+			}
+		}
+		
+		case 270:{
+			switch(m) {
+			
+			case 'l':{
+				Bloque actualBlock= blocks[0];
+				actualBlock.setFila(actualBlock.getFila()+2);
+				actualBlock.setColumna(actualBlock.getColumna()+2);
+				actualBlock= blocks[1];
+				actualBlock.setFila(actualBlock.getFila()+1);
+				actualBlock.setColumna(actualBlock.getColumna()+1);
+				actualBlock= blocks[3];
+				actualBlock.setFila(actualBlock.getFila()-1);
+				actualBlock.setColumna(actualBlock.getColumna()-1);
+				rotation=180;
+			}
+			
+			case 'r':{
+				Bloque actualBlock= blocks[0];
+				actualBlock.setFila(actualBlock.getFila()-2);
+				actualBlock.setColumna(actualBlock.getColumna()+2);
+				actualBlock= blocks[1];
+				actualBlock.setFila(actualBlock.getFila()-1);
+				actualBlock.setColumna(actualBlock.getColumna()+1);
+				actualBlock= blocks[3];
+				actualBlock.setFila(actualBlock.getFila()+1);
+				actualBlock.setColumna(actualBlock.getColumna()-1);
+				rotation=0;
+			}
+			
+			}
+		}
+		
+		}
 	}
 
 }

@@ -7,12 +7,12 @@ public abstract class Tetrimino {
 	int rotation;
 	Bloque[] blocks;
 	
-	abstract boolean checkmovement(char m);
+	protected abstract boolean checkMovementCollision(char m);
 	
-	abstract void movement(char m);
+	protected abstract void movement(char m);
 	
-	abstract boolean checkrotation(char m);
+	protected abstract boolean checkRotationCollision(char m);
 	
-	abstract boolean rotation(char m);
+	protected abstract void rotation(char m);
 		
 	}
