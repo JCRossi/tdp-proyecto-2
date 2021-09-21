@@ -13,6 +13,9 @@ public class Logica {
 		reloj = new Reloj(this);
 	}
 	
+	/*
+	 * 
+	 */
 	public void caer() {
 		boolean puedeCaer;
 		int filasCompletadas;
@@ -27,27 +30,42 @@ public class Logica {
 			filasCompletadas = grilla.despejar();
 			
 			if(filasCompletadas != 0)
-				sumarPuntaje(filasCompletadas);	
-			
-			//llamarNuevoTetrimino();
+				sumarPuntaje(filasCompletadas);
 		}
-		
 	}
 	
+	
+	/*
+	 * 
+	 */
 	public void moverADerecha() {
+		boolean sePuedeMover = grilla.chequearColision('r');
 		
+		if(sePuedeMover)
+			grilla.move('r');
 	}
 	
+	/*
+	 * 
+	 */
 	public void moverAIzquierda() {
+		boolean sePuedeMover = grilla.chequearColision('l');
 		
+		if(sePuedeMover)
+			grilla.move('l');
 	}
 	
+	
+	/*
+	 * 
+	 */
 	public void moverParaAbajo() {
 		caer();
 	}
 	
 	/*
 	 * Actualiza el puntaje del juego en base a las filas que se hayan completado
+	 * @param filasCompletadas Cantidad de filas que se completaron
 	 */
 	public void sumarPuntaje(int filasCompletadas) {
 		switch(filasCompletadas) {
