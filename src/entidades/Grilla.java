@@ -6,7 +6,7 @@ public class Grilla {
 	private Tetrimino actual;
 	private int filas;
 	private int columnas;
-	private Bloque[][] matriz;
+	private static Bloque[][] matriz;
 	
 	public Grilla() {
 		filas = 21;
@@ -18,14 +18,13 @@ public class Grilla {
 				matriz[i][j] = null;
 	}
 	
-	public void chequearColision(char direccion) {
-		boolean colisiona = actual.checkmovement(direccion);
-		
-		if (!colisiona)
-			actual.movement(direccion);
-		else if (direccion=='d')
-			// aca va la llamada a chequear la definicion de las lineas pq colisiono hacia abajo 
-		;
+	public boolean chequearColision(char direccion) {
+		return actual.checkmovement(direccion);	
+	}
+	
+	public void move(char direccion) {
+		actual.movement(direccion);
+		//settear bloques nueva posicion
 	}
 	
 	public int despejar() {
@@ -36,7 +35,7 @@ public class Grilla {
 		return filasDespejadas;
 	}
 	
-	public static boolean avaiableSpace(int R, int C) {
+	public static boolean availableSpace(int R, int C) {
 		return matriz[R][C]==null;
 	}
 }

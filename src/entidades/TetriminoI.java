@@ -27,7 +27,7 @@ public class TetriminoI extends Tetrimino{
 				
 				// checkeo que el bloque mas abajo no este en la ultima fila posible
 				// checkeo que el espacio abajo de dicho bloque este disponible
-				if(!(actualRow<20 && Grilla.avaiableSpace(actualRow+1, actualColumn)))
+				if(!(actualRow<20 && Grilla.availableSpace(actualRow+1, actualColumn)))
 					collision=true;
 					
 			}
@@ -40,7 +40,7 @@ public class TetriminoI extends Tetrimino{
 				if (actualColumn>0) {
 					for (int i=0; i<4; i++) {
 						// checkeo que el espacio a la izquierda del bloque este disponible
-						if(!Grilla.avaiableSpace(actualRow, actualColumn-1))
+						if(!Grilla.availableSpace(actualRow, actualColumn-1))
 							collision=true;
 						i++;
 						if(i<4) {
@@ -59,7 +59,7 @@ public class TetriminoI extends Tetrimino{
 				if (actualColumn<9) {
 					for (int i=0; i<4; i++) {
 						// checkeo que el espacio a la derecha del bloque este disponible
-						if(!Grilla.avaiableSpace(actualRow, actualColumn+1))
+						if(!Grilla.availableSpace(actualRow, actualColumn+1))
 							collision=true;
 						i++;
 						if(i<4) {
@@ -87,7 +87,7 @@ public class TetriminoI extends Tetrimino{
 				if (actualRow<20) {
 					for (int i=0; i<4; i++) {
 						// checkeo que el espacio a la izquierda del bloque este disponible
-						if(!Grilla.avaiableSpace(actualRow+1, actualColumn))
+						if(!Grilla.availableSpace(actualRow+1, actualColumn))
 							collision=true;
 						i++;
 						if(i<4) {
@@ -105,7 +105,7 @@ public class TetriminoI extends Tetrimino{
 				
 				// checkeo que el bloque mas a la izquierda no este en la primera columna posible
 				// checkeo que el espacio izquierdo de dicho bloque este disponible
-				if(!(actualColumn>0 && Grilla.avaiableSpace(actualRow, actualColumn-1)))
+				if(!(actualColumn>0 && Grilla.availableSpace(actualRow, actualColumn-1)))
 					collision=true;
 					
 			}
@@ -117,7 +117,7 @@ public class TetriminoI extends Tetrimino{
 				
 				// checkeo que el bloque mas a la derecha no este en la ultima columna posible
 				// checkeo que el espacio  a la derecha de dicho bloque este disponible
-				if(!(actualColumn<9 && Grilla.avaiableSpace(actualRow, actualColumn+1)))
+				if(!(actualColumn<9 && Grilla.availableSpace(actualRow, actualColumn+1)))
 					collision=true;
 					
 			}
@@ -138,7 +138,7 @@ public class TetriminoI extends Tetrimino{
 				
 				// checkeo que el bloque mas abajo no este en la ultima fila posible
 				// checkeo que el espacio abajo de dicho bloque este disponible
-				if(!(actualRow<20 && Grilla.avaiableSpace(actualRow+1, actualColumn)))
+				if(!(actualRow<20 && Grilla.availableSpace(actualRow+1, actualColumn)))
 					collision=true;
 					
 			}
@@ -151,7 +151,7 @@ public class TetriminoI extends Tetrimino{
 				if (actualColumn>0) {
 					for (int i=0; i<4; i++) {
 						// checkeo que el espacio a la izquierda del bloque este disponible
-						if(!Grilla.avaiableSpace(actualRow, actualColumn-1))
+						if(!Grilla.availableSpace(actualRow, actualColumn-1))
 							collision=true;
 						i++;
 						if(i<4) {
@@ -170,7 +170,7 @@ public class TetriminoI extends Tetrimino{
 				if (actualColumn<9) {
 					for (int i=0; i<4; i++) {
 						// checkeo que el espacio a la derecha del bloque este disponible
-						if(!Grilla.avaiableSpace(actualRow, actualColumn+1))
+						if(!Grilla.availableSpace(actualRow, actualColumn+1))
 							collision=true;
 						i++;
 						if(i<4) {
@@ -198,7 +198,7 @@ public class TetriminoI extends Tetrimino{
 				if (actualRow<20) {
 					for (int i=0; i<4; i++) {
 						// checkeo que el espacio debajo del bloque este disponible
-						if(!Grilla.avaiableSpace(actualRow+1, actualColumn))
+						if(!Grilla.availableSpace(actualRow+1, actualColumn))
 							collision=true;
 						i++;
 						if(i<4) {
@@ -216,7 +216,7 @@ public class TetriminoI extends Tetrimino{
 				
 				// checkeo que el bloque mas a la izquierda no este en la primera columna posible
 				// checkeo que el espacio izquierdo de dicho bloque este disponible
-				if(!(actualColumn>0 && Grilla.avaiableSpace(actualRow, actualColumn-1)))
+				if(!(actualColumn>0 && Grilla.availableSpace(actualRow, actualColumn-1)))
 					collision=true;
 					
 			}
@@ -228,7 +228,7 @@ public class TetriminoI extends Tetrimino{
 				
 				// checkeo que el bloque mas abajo no este en la ultima fila posible
 				// checkeo que el espacio abajo de dicho bloque este disponible
-				if(!(actualColumn<9 && Grilla.avaiableSpace(actualRow, actualColumn+1)))
+				if(!(actualColumn<9 && Grilla.availableSpace(actualRow, actualColumn+1)))
 					collision=true;
 					
 			}

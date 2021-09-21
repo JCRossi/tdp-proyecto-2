@@ -16,11 +16,12 @@ public class Logica {
 	public void caer() {
 		boolean puedeCaer;
 		int filasCompletadas;
-		puedeCaer = grilla.chequearColision('A');
+		puedeCaer = grilla.chequearColision('d');
 		filasCompletadas = 0;
 		
 		if(puedeCaer) {
-			//Mover la pieza para abajo
+			grilla.move('d');
+			//actualizar gui
 		}
 		else {
 			filasCompletadas = grilla.despejar();
@@ -42,7 +43,7 @@ public class Logica {
 	}
 	
 	public void moverParaAbajo() {
-		
+		caer();
 	}
 	
 	/*
