@@ -19,7 +19,7 @@ public class Grilla {
 	}
 	
 	public boolean chequearColision(char direccion) {
-		return actual.checkmovement(direccion);	
+		return actual.checkMovementCollision(direccion);	
 	}
 	
 	public void move(char direccion) {
