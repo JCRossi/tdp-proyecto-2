@@ -13,31 +13,68 @@ public class TetriminoO extends Tetrimino{
 
 	@Override
 	public void moverDerecha() {
-		// TODO Auto-generated method stub
-		
+		int columna = blocks[2].getColumna();
+		if(columna!=20) {
+			int[][] bloquesConflictivos = new int[2][2];
+			bloquesConflictivos[0][0] = blocks[2].getFila();
+			bloquesConflictivos[0][1] =	columna+1;
+			bloquesConflictivos[1][0] = blocks[3].getFila();
+			bloquesConflictivos[1][1] = blocks[3].getColumna()+1;
+			if(!Grilla.chequearColision(bloquesConflictivos)) {
+				for(int i = 0; i<4; i++)
+					blocks[i].setColumna(blocks[i].getColumna()+1);
+			}
+		}
 	}
 
 	@Override
 	public void moverIzquierda() {
-		// TODO Auto-generated method stub
-		
+		int columna = blocks[0].getColumna();
+		if(columna!=0) {
+			int[][] bloquesConflictivos = new int[2][2];
+			bloquesConflictivos[0][0] = blocks[0].getFila();
+			bloquesConflictivos[0][1] =	columna-1;
+			bloquesConflictivos[1][0] = blocks[1].getFila();
+			bloquesConflictivos[1][1] = blocks[1].getColumna()-1;
+			if(!Grilla.chequearColision(bloquesConflictivos)) {
+				for(int i = 0; i<4; i++)
+					blocks[i].setColumna(blocks[i].getColumna()-1);
+			}
+		}
 	}
 
 	@Override
 	public boolean moverAbajo() {
-		// TODO Auto-generated method stub
-		return false;
+		int fila = blocks[1].getFila();
+		boolean colision = false;
+		if(fila!=20) {
+			int[][] bloquesConflictivos = new int[2][2];
+			bloquesConflictivos[0][0] = fila+1;
+			bloquesConflictivos[0][1] =	blocks[1].getColumna();
+			bloquesConflictivos[1][0] = blocks[3].getFila()+1;
+			bloquesConflictivos[1][1] = blocks[3].getColumna();
+			colision = Grilla.chequearColision(bloquesConflictivos);
+			if(!colision) {
+				for(int i = 0; i<4; i++)
+					blocks[i].setFila(blocks[i].getFila()+1);
+			}
+		}
+		return colision;
 	}
 
 	@Override
 	public void rotarDerecha() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void rotarIzquierda() {
-		// TODO Auto-generated method stub
+	}
+	
+	public int[] filasOcupadas() {
+		int[] filasOcupadas = new int[2];
+		filasOcupadas[0]= blocks[0].getFila();
+		filasOcupadas[1]= blocks[1].getFila();
+		return filasOcupadas;
 		
 	}
 		
