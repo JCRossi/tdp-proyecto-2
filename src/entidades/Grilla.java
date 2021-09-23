@@ -1,7 +1,5 @@
 package entidades;
 
-import entidades.Tetrimino;
-
 public class Grilla {
 	
 	private int filas;
@@ -30,14 +28,20 @@ public class Grilla {
 	}
 	
 
-	//completar
-	public int despejar() {
+	public int despejar(int[] filasAChequear) {
 		int filasDespejadas = 0;
+		boolean filaCompletada = true;
 		
-		
+		for(int i = 0; i < filasAChequear.length; i++) {
+			for(int j = 0; j < columnas && filaCompletada; j++) {
+				if(matriz[filasAChequear[i]][j] == null)
+					filaCompletada = false;
+			}
+			
+			if(filaCompletada)
+				filasDespejadas++;
+		}
 		
 		return filasDespejadas;
 	}
-	
-	
 }

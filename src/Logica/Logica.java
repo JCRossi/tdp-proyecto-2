@@ -34,8 +34,14 @@ public class Logica {
 	 * 
 	 */
 	public void moverParaAbajo() {
-		if(!tetriminoActual.moverAbajo()) {
-			//aca deberia checkear las filas :_D
+		boolean colisiono = false;
+		int filasCompletadas = 0;
+		
+		colisiono = tetriminoActual.moverAbajo();
+		
+		if(colisiono) {
+			filasCompletadas = grilla.despejar(tetriminoActual.filasOcupadas());
+			actualizarPuntaje(filasCompletadas);
 		}
 	}
 	
@@ -57,8 +63,9 @@ public class Logica {
 	 * Actualiza el puntaje del juego en base a las filas que se hayan completado
 	 * @param filasCompletadas Cantidad de filas que se completaron
 	 */
-	public void sumarPuntaje(int filasCompletadas) {
+	public void actualizarPuntaje(int filasCompletadas) {
 		switch(filasCompletadas) {
+			case 0:
 			case 1:
 			case 2:
 				puntos.setPuntaje(puntos.getPuntaje() + (filasCompletadas * 100));
