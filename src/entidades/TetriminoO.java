@@ -14,7 +14,7 @@ public class TetriminoO extends Tetrimino{
 	@Override
 	public void moverDerecha() {
 		int columna = blocks[2].getColumna();
-		if(columna!=20) {
+		if(columna!=9) {
 			int[][] bloquesConflictivos = new int[2][2];
 			bloquesConflictivos[0][0] = blocks[2].getFila();
 			bloquesConflictivos[0][1] =	columna+1;
