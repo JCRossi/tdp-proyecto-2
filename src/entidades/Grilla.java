@@ -3,7 +3,7 @@ package entidades;
 import entidades.Tetrimino;
 
 public class Grilla {
-	private Tetrimino actual;
+	
 	private int filas;
 	private int columnas;
 	private static Bloque[][] matriz;
@@ -18,15 +18,19 @@ public class Grilla {
 				matriz[i][j] = null;
 	}
 	
-	public boolean chequearColision(char direccion) {
-		return actual.checkmovement(direccion);	
+	public static boolean chequearColision(int[][] posiciones) {
+		boolean colisiona = false;
+		int i = 0;
+		while(!colisiona && i<posiciones.length) {
+			
+			colisiona = matriz[posiciones[i][0]][posiciones[i][1]]!=null;
+			i++;
+		}
+		return colisiona;	
 	}
 	
-	public void move(char direccion) {
-		actual.movement(direccion);
-		//settear bloques nueva posicion
-	}
-	
+
+	//completar
 	public int despejar() {
 		int filasDespejadas = 0;
 		
@@ -35,7 +39,5 @@ public class Grilla {
 		return filasDespejadas;
 	}
 	
-	public static boolean availableSpace(int R, int C) {
-		return matriz[R][C]==null;
-	}
+	
 }

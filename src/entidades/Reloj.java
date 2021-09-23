@@ -68,7 +68,7 @@ public class Reloj implements Runnable {
 
 	
 	private void avisarCaidaTetrimino() {
-		juego.caer();
+		juego.moverParaAbajo();
 	}
 	
 	private void avisarPasaUnMinuto() {

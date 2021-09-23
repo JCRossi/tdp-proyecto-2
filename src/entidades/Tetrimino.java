@@ -4,15 +4,18 @@ import entidades.Bloque;
 
 public abstract class Tetrimino {
 	
-	int rotation;
-	Bloque[] blocks;
+	protected int rotation;
+	protected Bloque[] blocks;
+
 	
-	protected abstract boolean checkMovementCollision(char m);
+	public abstract void moverDerecha();
 	
-	protected abstract void movement(char m);
+	public abstract void moverIzquierda();
 	
-	protected abstract boolean checkRotationCollision(char m);
+	public abstract boolean moverAbajo();
 	
-	protected abstract void rotation(char m);
+	public abstract void rotarDerecha();
+	
+	public abstract void rotarIzquierda();
 		
 	}
