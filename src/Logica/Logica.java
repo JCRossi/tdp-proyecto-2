@@ -6,6 +6,8 @@ public class Logica {
 	private Puntaje puntos;
 	private Grilla grilla;
 	private Reloj reloj;
+	private Tetrimino tetriminoActual;
+	private Thread hiloReloj;
 	
 	public Logica() {
 		puntos = new Puntaje();
@@ -16,43 +18,15 @@ public class Logica {
 	/*
 	 * 
 	 */
-	public void caer() {
-		boolean puedeCaer;
-		int filasCompletadas;
-		puedeCaer = !grilla.chequearColision('d');
-		filasCompletadas = 0;
-		
-		if(puedeCaer) {
-			grilla.move('d');
-			//actualizar gui
-		}
-		else {
-			filasCompletadas = grilla.despejar();
-			
-			if(filasCompletadas != 0)
-				sumarPuntaje(filasCompletadas);
-		}
-	}
-	
-	
-	/*
-	 * 
-	 */
 	public void moverADerecha() {
-		boolean sePuedeMover = !grilla.chequearColision('r');
-		
-		if(sePuedeMover)
-			grilla.move('r');
+		tetriminoActual.moverDerecha();
 	}
 	
 	/*
 	 * 
 	 */
 	public void moverAIzquierda() {
-		boolean sePuedeMover = grilla.chequearColision('l');
-		
-		if(sePuedeMover)
-			grilla.move('l');
+		tetriminoActual.moverIzquierda();
 	}
 	
 	
@@ -60,7 +34,23 @@ public class Logica {
 	 * 
 	 */
 	public void moverParaAbajo() {
-		caer();
+		if(!tetriminoActual.moverAbajo()) {
+			//aca deberia checkear las filas :_D
+		}
+	}
+	
+	/*
+	 * 
+	 */
+	public void rotarDerecha() {
+		tetriminoActual.rotarDerecha();
+	}
+	
+	/*
+	 * 
+	 */
+	public void rotarIzquierda() {
+		tetriminoActual.rotarIzquierda();
 	}
 	
 	/*
