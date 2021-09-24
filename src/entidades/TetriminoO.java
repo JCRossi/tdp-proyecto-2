@@ -46,20 +46,20 @@ public class TetriminoO extends Tetrimino{
 	@Override
 	public boolean moverAbajo() {
 		int fila = blocks[1].getFila();
-		boolean colision = false;
+		boolean puedeBajar = true;
 		if(fila!=20) {
 			int[][] bloquesConflictivos = new int[2][2];
 			bloquesConflictivos[0][0] = fila+1;
 			bloquesConflictivos[0][1] =	blocks[1].getColumna();
 			bloquesConflictivos[1][0] = blocks[3].getFila()+1;
 			bloquesConflictivos[1][1] = blocks[3].getColumna();
-			colision = Grilla.chequearColision(bloquesConflictivos);
-			if(!colision) {
+			puedeBajar = !Grilla.chequearColision(bloquesConflictivos);
+			if(puedeBajar) {
 				for(int i = 0; i<4; i++)
 					blocks[i].setFila(blocks[i].getFila()+1);
 			}
 		}
-		return colision;
+		return puedeBajar;
 	}
 
 	@Override
