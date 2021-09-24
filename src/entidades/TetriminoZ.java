@@ -58,13 +58,13 @@ public class TetriminoZ extends Tetrimino{
 				
 				if(blocks[0].getColumna() != 0) {
 					bloquesConflictivos[0][0] = blocks[0].getFila();
-					bloquesConflictivos[0][1] = blocks[0].getColumna() + 1;
+					bloquesConflictivos[0][1] = blocks[0].getColumna() - 1;
 					bloquesConflictivos[1][0] = blocks[2].getFila();
-					bloquesConflictivos[1][1] = blocks[2].getColumna() + 1;
+					bloquesConflictivos[1][1] = blocks[2].getColumna() - 1;
 					
 					if(!Grilla.chequearColision(bloquesConflictivos)) {
 						for(int i = 0; i < 4; i++)
-							blocks[i].setColumna(blocks[i].getColumna());
+							blocks[i].setColumna(blocks[i].getColumna() - 1);
 					}
 				}
 			}
@@ -74,15 +74,15 @@ public class TetriminoZ extends Tetrimino{
 				
 				if(blocks[2].getColumna() != 0) {
 					bloquesConflictivos[0][0] = blocks[0].getFila();
-					bloquesConflictivos[0][1] = blocks[0].getColumna() + 1;
+					bloquesConflictivos[0][1] = blocks[0].getColumna() - 1;
 					bloquesConflictivos[1][0] = blocks[2].getFila();
-					bloquesConflictivos[1][1] = blocks[2].getColumna() + 1;
+					bloquesConflictivos[1][1] = blocks[2].getColumna() - 1;
 					bloquesConflictivos[2][0] = blocks[3].getFila();
-					bloquesConflictivos[2][1] = blocks[3].getColumna() + 1;
+					bloquesConflictivos[2][1] = blocks[3].getColumna() - 1;
 					
 					if(!Grilla.chequearColision(bloquesConflictivos)) {
 						for(int i = 0; i < 4; i++)
-							blocks[i].setColumna(blocks[i].getColumna() + 1);
+							blocks[i].setColumna(blocks[i].getColumna() - 1);
 					}
 				}
 			}
@@ -137,16 +137,193 @@ public class TetriminoZ extends Tetrimino{
 			}
 		}
 		
-		return colision;
+		return !(colision);
 	}
 	
 	public void rotarDerecha() {
 		
+		switch(rotation) {
+		case 0:{
+			if(blocks[0].getFila()!=0) { //CASO DEFAULT sin colision techo
+			
+				int [][] bloquesConflictivos = new int[2][2];
+				int columnaReferencia = blocks[1].getColumna();
+				int filaReferencia= blocks[1].getFila();
+				
+				bloquesConflictivos[0][0] = filaReferencia-1;
+				bloquesConflictivos[0][1] = columnaReferencia;
+				bloquesConflictivos[1][0] = filaReferencia+1;
+				bloquesConflictivos[1][1] = columnaReferencia -1;
+				
+				if( !Grilla.chequearColision(bloquesConflictivos) ) {	//Rotacion 1
+					
+					blocks[0].setFila(filaReferencia-1);
+					blocks[0].setColumna(columnaReferencia);
+					
+					blocks[2].setFila(filaReferencia);
+					blocks[2].setColumna(columnaReferencia-1);
+					
+					blocks[3].setFila(filaReferencia+1);
+					blocks[3].setColumna(columnaReferencia-1);
+					
+					rotation = 90;
+				}else {													//Rotacion 2				
+					bloquesConflictivos[0][0] = filaReferencia;
+					bloquesConflictivos[0][1] = columnaReferencia+1;
+					bloquesConflictivos[1][0] = filaReferencia-1;
+					bloquesConflictivos[1][1] = columnaReferencia +1;
+					
+					if( !Grilla.chequearColision(bloquesConflictivos) ) {
+						
+						blocks[0].setFila(filaReferencia-1);
+						blocks[0].setColumna(columnaReferencia+1);
+						
+						blocks[1].setColumna(columnaReferencia+1);
+						
+						blocks[2].setFila(filaReferencia);
+						blocks[2].setColumna(columnaReferencia);
+						
+						blocks[3].setFila(filaReferencia+1);
+						blocks[3].setColumna(columnaReferencia);
+						
+						rotation = 90;
+						
+					}
+					
+					
+				}
+				
+				
+			}
+			if(blocks[2].getFila() !=20 && rotation != 90) {
+				
+				int [][] bloquesConflictivos = new int[2][2];
+				int columnaReferencia = blocks[1].getColumna();
+				int filaReferencia= blocks[1].getFila();
+				
+				bloquesConflictivos[0][0] = filaReferencia+1;
+				bloquesConflictivos[0][1] = columnaReferencia-1;
+				bloquesConflictivos[1][0] = filaReferencia+2;
+				bloquesConflictivos[1][1] = columnaReferencia -1;
+				
+				if( !Grilla.chequearColision(bloquesConflictivos) ) {	//Rotacion 1 con techo
+					blocks[0].setFila(filaReferencia);
+					blocks[0].setColumna(columnaReferencia);
+					
+					blocks[1].setFila(filaReferencia+1);
+	
+					blocks[2].setFila(filaReferencia+1);
+					blocks[2].setColumna(columnaReferencia-1);
+					
+					blocks[3].setFila(filaReferencia+2);
+					blocks[3].setColumna(columnaReferencia-1);
+					
+					rotation = 90;
+					
+				}else {
+					
+					bloquesConflictivos[0][0] = filaReferencia;
+					bloquesConflictivos[0][1] = columnaReferencia+1;
+					bloquesConflictivos[1][0] = filaReferencia+2;
+					bloquesConflictivos[1][1] = columnaReferencia;
+					
+					if( !Grilla.chequearColision(bloquesConflictivos) ) {	//Rotacion 2 con techo
+						blocks[0].setFila(filaReferencia);
+						blocks[0].setColumna(columnaReferencia+1);
+						
+						blocks[1].setFila(filaReferencia+1);
+						blocks[1].setColumna(columnaReferencia+1);
+						
+						blocks[2].setFila(filaReferencia+1);
+						blocks[2].setColumna(columnaReferencia);
+						
+						blocks[3].setFila(filaReferencia+2);
+						blocks[3].setColumna(columnaReferencia);
+						
+						rotation = 90;
+					}	
+					
+				}
+	
+			}
+		}
+		case 90:{
+			
+			if(blocks[0].getColumna()!= 9) { //CASO DEFAULT sin colision pared derecha
+			
+				int [][] bloquesConflictivos = new int[2][2];
+				int columnaReferencia = blocks[1].getColumna();
+				int filaReferencia= blocks[1].getFila();
+				
+				bloquesConflictivos[0][0] = filaReferencia+1;
+				bloquesConflictivos[0][1] = columnaReferencia;
+				bloquesConflictivos[1][0] = filaReferencia+1;
+				bloquesConflictivos[1][1] = columnaReferencia +1;
+				
+				
+				if( !Grilla.chequearColision(bloquesConflictivos) ) {
+					
+					blocks[0].setFila(filaReferencia);
+					blocks[0].setColumna(columnaReferencia-1);
+					
+					blocks[2].setFila(filaReferencia+1);
+					blocks[2].setColumna(columnaReferencia);
+					
+					blocks[3].setFila(filaReferencia+1);
+					blocks[3].setColumna(columnaReferencia+1);
+					
+					rotation = 0;
+	
+				}
+				
+			
+			}
+			
+			if(rotation !=0 && blocks[2].getColumna() != 0 ) { //Caso colisión pared izquierda
+			
+				
+				int [][] bloquesConflictivos = new int[2][2];
+				int columnaReferencia = blocks[1].getColumna();
+				int filaReferencia= blocks[1].getFila();
+				
+				bloquesConflictivos[0][0] = filaReferencia+1;
+				bloquesConflictivos[0][1] = columnaReferencia;
+				bloquesConflictivos[1][0] = filaReferencia;
+				bloquesConflictivos[1][1] = columnaReferencia -2;
+				
+				
+				if( !Grilla.chequearColision(bloquesConflictivos) ) {
+					
+					blocks[0].setFila(filaReferencia);
+					blocks[0].setColumna(columnaReferencia-2);
+					
+					blocks[1].setFila(filaReferencia);
+					blocks[1].setColumna(columnaReferencia-1);
+					
+					blocks[2].setFila(filaReferencia+1);
+					blocks[2].setColumna(columnaReferencia-1);
+					
+					blocks[3].setFila(filaReferencia+1);
+					blocks[3].setColumna(columnaReferencia);
+					
+					rotation = 0;
+	
+				}
+					
+				
+			}
+			
+		}
+		
+		}
+	
 	}
 	
 	public void rotarIzquierda() {
-		
+		//Como sólo usamos 2 rotaciones rotarIzquierda hace lo mismo que rotarDerecha
+		rotarDerecha();
 	}
+	
 	
 	public int[] filasOcupadas() {
 		int[] filasOcupadas = null;
