@@ -727,7 +727,6 @@ public class TetriminoJ extends Tetrimino{
 		}
 		case 270:{
 			
-			//int [][] bloquesConflictivos = new int[3][2];
 			int columnaReferencia = blocks[2].getColumna();
 			int filaReferencia= blocks[2].getFila();
 			
@@ -789,8 +788,28 @@ public class TetriminoJ extends Tetrimino{
 		}
 		
 	}
-	
-	
 
-	
+	@Override
+	public int[] filasOcupadas() {
+		
+		int [] filasOcupadas;
+		if(rotation == 0 || rotation ==180) {
+			int filaBloque0= blocks[0].getFila();
+			int filaBloque1= blocks[0].getFila();
+			filasOcupadas = new int[2];
+			filasOcupadas[0] = filaBloque0;
+			filasOcupadas[1] = filaBloque1;
+		}else {
+			int filaBloque1= blocks[1].getFila();
+			int filaBloque2= blocks[2].getFila();
+			int filaBloque3= blocks[3].getFila();
+			filasOcupadas = new int[3];
+			filasOcupadas[0] = filaBloque1;
+			filasOcupadas[1] = filaBloque2;
+			filasOcupadas[2] = filaBloque3;	
+		}
+		
+		return filasOcupadas;
+	}
+
 }
