@@ -12,6 +12,7 @@ Debemos hacer algo semejante a esto cuando creamos el reloj. Siendo this una ins
 */
 
 public class Reloj implements Runnable {
+	private boolean continuar;
 	private Logica juego;
 	private long velocidadCaida;
 	private int minutos;
@@ -22,7 +23,7 @@ public class Reloj implements Runnable {
 		minutos = 0;
 		segundos = 0;
 		velocidadCaida = 1000;
-		
+		continuar = true;
 	}
 	
 	@Override
@@ -30,7 +31,7 @@ public class Reloj implements Runnable {
 		try {
 			int sumatoriaParaAumentarSegundos = 0;
 			int faltanteParaSegundo = 0;
-			while(true) {
+			while(this.continuar) {
 				//Me fijo la cantidad de veces que entra una caida en un segundo y las ejecuto
 				while((sumatoriaParaAumentarSegundos+velocidadCaida)<=1000 ){
 					Thread.sleep(velocidadCaida);
@@ -83,8 +84,6 @@ public class Reloj implements Runnable {
 		juego.ActualizarRelojGui(minutos, segundos);
 	}
 	
-	
-	
 	public int getMinutos(){
 		return minutos;
 	}
@@ -92,6 +91,11 @@ public class Reloj implements Runnable {
 	public int getSegundos() {
 		return segundos;
 	}
+	
+	public void frenarReloj() {
+		continuar = false;
+	}
+
 }
 
 	
