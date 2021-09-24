@@ -58,13 +58,13 @@ public class TetriminoZ extends Tetrimino{
 				
 				if(blocks[0].getColumna() != 0) {
 					bloquesConflictivos[0][0] = blocks[0].getFila();
-					bloquesConflictivos[0][1] = blocks[0].getColumna() + 1;
+					bloquesConflictivos[0][1] = blocks[0].getColumna() - 1;
 					bloquesConflictivos[1][0] = blocks[2].getFila();
-					bloquesConflictivos[1][1] = blocks[2].getColumna() + 1;
+					bloquesConflictivos[1][1] = blocks[2].getColumna() - 1;
 					
 					if(!Grilla.chequearColision(bloquesConflictivos)) {
 						for(int i = 0; i < 4; i++)
-							blocks[i].setColumna(blocks[i].getColumna());
+							blocks[i].setColumna(blocks[i].getColumna() - 1);
 					}
 				}
 			}
@@ -74,15 +74,15 @@ public class TetriminoZ extends Tetrimino{
 				
 				if(blocks[2].getColumna() != 0) {
 					bloquesConflictivos[0][0] = blocks[0].getFila();
-					bloquesConflictivos[0][1] = blocks[0].getColumna() + 1;
+					bloquesConflictivos[0][1] = blocks[0].getColumna() - 1;
 					bloquesConflictivos[1][0] = blocks[2].getFila();
-					bloquesConflictivos[1][1] = blocks[2].getColumna() + 1;
+					bloquesConflictivos[1][1] = blocks[2].getColumna() - 1;
 					bloquesConflictivos[2][0] = blocks[3].getFila();
-					bloquesConflictivos[2][1] = blocks[3].getColumna() + 1;
+					bloquesConflictivos[2][1] = blocks[3].getColumna() - 1;
 					
 					if(!Grilla.chequearColision(bloquesConflictivos)) {
 						for(int i = 0; i < 4; i++)
-							blocks[i].setColumna(blocks[i].getColumna() + 1);
+							blocks[i].setColumna(blocks[i].getColumna() - 1);
 					}
 				}
 			}
