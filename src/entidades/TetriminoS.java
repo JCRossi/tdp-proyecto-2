@@ -85,7 +85,7 @@ public class TetriminoS extends Tetrimino{
 			}
 			
 			case 90:{
-				int[][] bloquesConflictivos = new int[2][2];
+				int[][] bloquesConflictivos = new int[3][2];
 				
 				if(blocks[3].getColumna() != 9) {
 					bloquesConflictivos[0][0] = blocks[0].getFila();
@@ -124,7 +124,7 @@ public class TetriminoS extends Tetrimino{
 		}
 		
 		case 90:{
-			int[][] bloquesConflictivos = new int[2][2];
+			int[][] bloquesConflictivos = new int[3][2];
 			
 			if(blocks[1].getColumna() != 0) {
 				bloquesConflictivos[0][0] = blocks[0].getFila();
