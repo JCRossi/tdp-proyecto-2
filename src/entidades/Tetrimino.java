@@ -16,4 +16,8 @@ public abstract class Tetrimino {
 	public abstract void rotarIzquierda();
 	
 	public abstract int[] filasOcupadas();
+	
+	public Bloque[] getBloques() {
+		return blocks;
+	}
 }

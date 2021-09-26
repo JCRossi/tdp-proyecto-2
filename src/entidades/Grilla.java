@@ -27,6 +27,14 @@ public class Grilla {
 		return colisiona;	
 	}
 	
+	public void actualizarGrilla(Tetrimino actual) {
+		Bloque[] bloques = actual.getBloques();
+		
+		for(int i = 0; i < 4; i++) {
+			Bloque bloque = bloques[i];
+			matriz[bloque.getFila()][bloque.getColumna()] = bloque; 
+		}
+	}
 
 	public int despejar(int[] filasAChequear) {
 		int filasDespejadas = 0;
