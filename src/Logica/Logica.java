@@ -7,56 +7,51 @@ public class Logica {
 	private Grilla grilla;
 	private Reloj reloj;
 	private Tetrimino tetriminoActual;
-	private Thread hiloReloj;
+	private Thread hiloReloj;//Potencialmente innecesario
+	
+	
+	public final int MOVER_IZQUIERDA = 0;
+	public final int MOVER_DERECHA = 1;
+	public final int MOVER_ABAJO = 2;
+	public final int ROTAR_IZQUIERDA = 3;
+	public final int ROTAR_DERECHA = 4;
+	
 	
 	public Logica() {
 		puntos = new Puntaje();
 		grilla = new Grilla();
 		reloj = new Reloj(this);
+		hiloReloj = new Thread(this.reloj); //No estoy seguro si es necesario guardar el hilo
+		hiloReloj.start();
 	}
 	
-	/*
-	 * 
-	 */
-	public void moverADerecha() {
-		tetriminoActual.moverDerecha();
-	}
-	
-	/*
-	 * 
-	 */
-	public void moverAIzquierda() {
-		tetriminoActual.moverIzquierda();
-	}
-	
-	
-	/*
-	 * 
-	 */
-	public void moverParaAbajo() {
-		boolean colisiono = false;
-		int filasCompletadas = 0;
-		
-		colisiono = tetriminoActual.moverAbajo();
-		
-		if(colisiono) {
-			filasCompletadas = grilla.despejar(tetriminoActual.filasOcupadas());
-			actualizarPuntaje(filasCompletadas);
+	public synchronized void operar(int operacion) {
+		switch(operacion) {
+		case MOVER_IZQUIERDA:
+			tetriminoActual.moverIzquierda();
+			
+		case MOVER_DERECHA:
+			tetriminoActual.moverDerecha();
+			
+		case MOVER_ABAJO:{
+			boolean puedeBajar = true;
+			int filasCompletadas = 0;
+			
+			puedeBajar = tetriminoActual.moverAbajo();
+			
+			if(!puedeBajar) {
+				filasCompletadas = grilla.despejar(tetriminoActual.filasOcupadas());
+				actualizarPuntaje(filasCompletadas);
+			}	
 		}
-	}
-	
-	/*
-	 * 
-	 */
-	public void rotarDerecha() {
-		tetriminoActual.rotarDerecha();
-	}
-	
-	/*
-	 * 
-	 */
-	public void rotarIzquierda() {
-		tetriminoActual.rotarIzquierda();
+		
+		case ROTAR_IZQUIERDA:
+			tetriminoActual.rotarIzquierda();
+			
+		case ROTAR_DERECHA:
+			tetriminoActual.rotarDerecha();
+			
+		}
 	}
 	
 	/*
@@ -80,7 +75,10 @@ public class Logica {
 	}
 	
 	public void finalizarJuego() {
-		
+		//...
+		//...
+		reloj.frenarReloj();
+		//hiloReloj.stop();
 	}
 
 	//Este método recibe el tiempo directamente desde el reloj y actualiza a la GUI

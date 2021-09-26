@@ -318,7 +318,7 @@ public class TetriminoS extends Tetrimino{
 
 	@Override
 	public int[] filasOcupadas() {
-int[] filasOcupadas = null;
+		int[] filasOcupadas = null;
 		
 		switch(rotation) {
 			case 0:{
