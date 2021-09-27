@@ -39,6 +39,7 @@ public class TetriminoS extends Tetrimino{
 				}
 				else 
 					colision = true;
+				break;
 			}
 				
 			case 90:{
@@ -82,6 +83,7 @@ public class TetriminoS extends Tetrimino{
 							blocks[i].setColumna(blocks[i].getColumna() + 1);
 					}
 				}
+				break;
 			}
 			
 			case 90:{
@@ -121,6 +123,7 @@ public class TetriminoS extends Tetrimino{
 						blocks[i].setColumna(blocks[i].getColumna() - 1);
 				}
 			}
+			break;
 		}
 		
 		case 90:{
@@ -243,6 +246,7 @@ public class TetriminoS extends Tetrimino{
 					}
 				}
 			}
+			break;
 		}
 		
 		case 90:{
@@ -326,6 +330,7 @@ public class TetriminoS extends Tetrimino{
 				
 				filasOcupadas[0] = blocks[2].getFila();
 				filasOcupadas[1] = filasOcupadas[0]+1;
+				break;
 			}
 			
 			case 90:{

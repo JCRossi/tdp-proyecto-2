@@ -47,60 +47,74 @@ public class Logica {
 			switch(listaTetriminos[index]) {
 				case 'I':{
 					tetriminoActual = new TetriminoI();
+					break;
 				}
 				
 				case 'J':{
 					tetriminoActual = new TetriminoJ();
+					break;
 				}
 
 				case 'L':{
 					tetriminoActual = new TetriminoL();
+					break;
 				}
 				
 				case 'O':{
 					tetriminoActual = new TetriminoO();
+					break;
 				}
 				
 				case 'S':{
 					tetriminoActual = new TetriminoS();
+					break;
 				}
 				
 				case 'T':{
 					tetriminoActual = new TetriminoT();
+					break;
 				}
 				
 				case 'Z':{
 					tetriminoActual = new TetriminoZ();
+					break;
 				}
 			}
 			
 			switch(listaTetriminos[indexProx]) {
 				case 'I':{
 					proximoTetrimino = new TetriminoI();
+					break;
 				}
 				
 				case 'J':{
 					proximoTetrimino = new TetriminoJ();
+					break;
 				}
 	
 				case 'L':{
 					proximoTetrimino = new TetriminoL();
+					break;
 				}
 				
 				case 'O':{
 					proximoTetrimino = new TetriminoO();
+					break;
 				}
 				
 				case 'S':{
 					proximoTetrimino = new TetriminoS();
+					break;
 				}
 				
 				case 'T':{
 					proximoTetrimino = new TetriminoT();
+					break;
 				}
 				
 				case 'Z':{
 					proximoTetrimino = new TetriminoZ();
+					break;
 				}
 			}
 			
@@ -113,30 +127,37 @@ public class Logica {
 			switch(listaTetriminos[index]) {
 				case 'I':{
 					proximoTetrimino = new TetriminoI();
+					break;
 				}
 				
 				case 'J':{
 					proximoTetrimino = new TetriminoJ();
+					break;
 				}
 
 				case 'L':{
 					proximoTetrimino = new TetriminoL();
+					break;
 				}
 				
 				case 'O':{
 					proximoTetrimino = new TetriminoO();
+					break;
 				}
 				
 				case 'S':{
 					proximoTetrimino = new TetriminoS();
+					break;
 				}
 				
 				case 'T':{
 					proximoTetrimino = new TetriminoT();
+					break;
 				}
 				
 				case 'Z':{
 					proximoTetrimino = new TetriminoZ();
+					break;
 				}
 			}
 		}
@@ -146,9 +167,11 @@ public class Logica {
 		switch(operacion) {
 			case MOVER_IZQUIERDA:
 				tetriminoActual.moverIzquierda();
+				break;
 				
 			case MOVER_DERECHA:
 				tetriminoActual.moverDerecha();
+				break;
 				
 			case MOVER_ABAJO:{
 				boolean puedeBajar = true;
@@ -161,15 +184,18 @@ public class Logica {
 					filasCompletadas = grilla.despejar(tetriminoActual.filasOcupadas());
 					actualizarPuntaje(filasCompletadas);
 					llamarNuevoTetrimino();
-				}	
+				}
+				break;
 			}
 			
 	
 			case ROTAR_IZQUIERDA:
 				tetriminoActual.rotarIzquierda();
+				break;
 				
 			case ROTAR_DERECHA:
 				tetriminoActual.rotarDerecha();
+				break;
 		}
 	}
 	
@@ -180,13 +206,18 @@ public class Logica {
 	public void actualizarPuntaje(int filasCompletadas) {
 		switch(filasCompletadas) {
 			case 0:
+				break;
 			case 1:
+				break;
 			case 2:
 				puntos.setPuntaje(puntos.getPuntaje() + (filasCompletadas * 100));
+				break;
 			case 3:
 				puntos.setPuntaje(puntos.getPuntaje() + 500);
+				break;
 			case 4:
 				puntos.setPuntaje(puntos.getPuntaje() + 800);
+				break;
 		}
 		
 		pantalla.actualizarPuntajeGrafico(puntos.getPuntaje());

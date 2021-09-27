@@ -32,7 +32,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[3].setColumna(columnaCentro+2);
 				}
 			}
-			
+			break;
 		}
 		
 		case 90:{
@@ -51,6 +51,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[3].setColumna(columnaCentro+2);
 				}
 			}
+			break;
 		}
 
 		case 180:{
@@ -67,6 +68,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[3].setColumna(columnaCentro+2);
 				}
 			}
+			break;
 		}
 
 		case 270:{
@@ -85,6 +87,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[3].setColumna(columnaCentro+1);
 				}
 			}
+			break;
 		}
 		
 		}
@@ -112,7 +115,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[3].setColumna(columnaCentro);
 				}
 			}
-			
+			break;
 		}
 		
 		case 90:{
@@ -131,6 +134,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[3].setColumna(columnaCentro);
 				}
 			}
+			break;
 		}
 
 		case 180:{
@@ -147,6 +151,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[3].setColumna(columnaCentro);
 				}
 			}
+			break;
 		}
 
 		case 270:{
@@ -196,7 +201,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[3].setFila(filaCentro+1);
 				}
 			}
-			
+			break;
 		}
 		
 		case 90:{
@@ -214,6 +219,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[3].setFila(filaCentro+1);
 				}
 			}
+			break;
 		}
 
 		case 180:{
@@ -233,6 +239,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[3].setFila(filaCentro+1);
 				}
 			}
+			break;
 		}
 
 		case 270:{
@@ -325,6 +332,7 @@ public class TetriminoT extends Tetrimino {
 					}
 				}
 			}
+			break;
 		}
 		
 		case 90:{
@@ -389,6 +397,7 @@ public class TetriminoT extends Tetrimino {
 					}
 				}
 			}
+			break;
 		}
 		
 		case 180:{
@@ -453,6 +462,7 @@ public class TetriminoT extends Tetrimino {
 					}
 				}
 			}
+			break;
 		}
 		
 		case 270:{
@@ -600,6 +610,7 @@ public class TetriminoT extends Tetrimino {
 					}
 				}
 			}
+			break;
 		}
 		
 		case 90:{
@@ -664,6 +675,7 @@ public class TetriminoT extends Tetrimino {
 					}
 				}
 			}
+			break;
 		}
 		
 		case 180:{
@@ -728,6 +740,7 @@ public class TetriminoT extends Tetrimino {
 					}
 				}
 			}
+			break;
 		}
 		
 		case 270:{
@@ -805,7 +818,8 @@ public class TetriminoT extends Tetrimino {
 		case 0:{
 			filasOcupadas = new int[2];
 			filasOcupadas[0] = blocks[2].getFila();
-			filasOcupadas[1] = filasOcupadas[0]+1;		
+			filasOcupadas[1] = filasOcupadas[0]+1;
+			break;
 		}
 		
 		case 90:{
@@ -813,12 +827,14 @@ public class TetriminoT extends Tetrimino {
 			filasOcupadas[0] = blocks[2].getFila();
 			filasOcupadas[1] = filasOcupadas[0]+1;
 			filasOcupadas[2] = filasOcupadas[0]+2;
+			break;
 		}
 		
 		case 180:{
 			filasOcupadas = new int[2];
 			filasOcupadas[0] = blocks[0].getFila();
 			filasOcupadas[1] = filasOcupadas[0]+1;
+			break;
 		}
 		
 		case 270:{

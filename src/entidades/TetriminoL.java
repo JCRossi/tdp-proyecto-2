@@ -41,6 +41,7 @@ public class TetriminoL extends Tetrimino {
 			}
 			else 
 				colision = true;
+			break;
 		}
 			
 		case 90:{
@@ -61,7 +62,7 @@ public class TetriminoL extends Tetrimino {
 			}
 			else
 				colision = true;
-			
+			break;
 		}
 		case 180:{
 			int[][] bloquesConflictivos = new int[3][2];
@@ -83,6 +84,7 @@ public class TetriminoL extends Tetrimino {
 			}
 			else
 				colision = true;
+			break;
 			
 		}
 		case 270:{
@@ -103,6 +105,7 @@ public class TetriminoL extends Tetrimino {
 			}
 			else
 				colision = true;
+			break;
 			
 			}
 		}
@@ -127,6 +130,7 @@ public class TetriminoL extends Tetrimino {
 						blocks[i].setColumna(blocks[i].getColumna() + 1);
 				}
 			}
+			break;
 		}
 		
 		case 90:{
@@ -145,6 +149,7 @@ public class TetriminoL extends Tetrimino {
 						blocks[i].setColumna(blocks[i].getColumna() + 1);
 				}
 			}
+			break;
 		}
 		
 		case 180:{
@@ -161,6 +166,7 @@ public class TetriminoL extends Tetrimino {
 						blocks[i].setColumna(blocks[i].getColumna() + 1);
 				}
 			}
+			break;
 		}
 		
 		case 270:{
@@ -179,6 +185,7 @@ public class TetriminoL extends Tetrimino {
 						blocks[i].setColumna(blocks[i].getColumna() + 1);
 					}
 				}
+			break;
 			}
 		}
 	}
@@ -200,6 +207,7 @@ public class TetriminoL extends Tetrimino {
 						blocks[i].setColumna(blocks[i].getColumna() - 1);
 				}
 			}
+			break;
 		}
 		
 		case 90:{
@@ -218,6 +226,7 @@ public class TetriminoL extends Tetrimino {
 						blocks[i].setColumna(blocks[i].getColumna() - 1);
 				}
 			}
+			break;
 		}
 		
 		case 180:{
@@ -234,6 +243,7 @@ public class TetriminoL extends Tetrimino {
 						blocks[i].setColumna(blocks[i].getColumna() - 1);
 				}
 			}
+			break;
 		}
 		
 		case 270:{
@@ -252,6 +262,7 @@ public class TetriminoL extends Tetrimino {
 						blocks[i].setColumna(blocks[i].getColumna() - 1);
 					}
 				}
+			break;
 			}
 		}
 	}
@@ -331,7 +342,7 @@ public class TetriminoL extends Tetrimino {
 					rotation = 90;
 				}
 			}
-	
+			break;
 		}
 		case 90:{
 			if(blocks[0].getColumna() != 1) {
@@ -386,7 +397,7 @@ public class TetriminoL extends Tetrimino {
 					rotation = 180;
 				}
 			}
-				
+			break;	
 		}
 		case 180:{
 			
@@ -442,7 +453,7 @@ public class TetriminoL extends Tetrimino {
 				
 			}
 				
-			
+			break;
 		}
 		case 270:{
 			if(blocks[1].getFila() != 9) {//CASO 1
@@ -507,7 +518,7 @@ public class TetriminoL extends Tetrimino {
 			}
 			
 			
-			
+			break;
 		}
 		}
 		
@@ -594,7 +605,7 @@ public class TetriminoL extends Tetrimino {
 				}	
 				
 			}
-	
+			break;
 		}
 		case 90:{
 			if(blocks[2].getColumna() != 0) {//Si no esta en la pared izquierda rotacion 1
@@ -657,7 +668,7 @@ public class TetriminoL extends Tetrimino {
 				}
 				
 			}
-			
+			break;
 		}
 		case 180:{
 
@@ -715,7 +726,7 @@ public class TetriminoL extends Tetrimino {
 				}
 								
 			}
-	
+			break;
 		}
 		case 270:{
 			int[][] bloquesConflictivos = new int[3][2];
@@ -789,6 +800,7 @@ public class TetriminoL extends Tetrimino {
 				
 				filasOcupadas[0] = blocks[0].getFila();
 				filasOcupadas[1] = filasOcupadas[0]+1;
+				break;
 			}
 			
 			case 90:{
@@ -797,6 +809,7 @@ public class TetriminoL extends Tetrimino {
 				filasOcupadas[0] = blocks[3].getFila();
 				filasOcupadas[1] = filasOcupadas[0]+1;
 				filasOcupadas[2] = filasOcupadas[0]+2;
+				break;
 			}
 			
 			case 180:{
@@ -804,6 +817,7 @@ public class TetriminoL extends Tetrimino {
 				
 				filasOcupadas[0] = blocks[1].getFila();
 				filasOcupadas[1] = filasOcupadas[0]+1;
+				break;
 			}
 			
 			case 270:{

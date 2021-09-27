@@ -30,6 +30,7 @@ public class TetriminoJ extends Tetrimino{
 				}
 			
 			}
+			break;
 		}
 		case 90:{
 			if(blocks[0].getColumna() != 9) {
@@ -48,6 +49,7 @@ public class TetriminoJ extends Tetrimino{
 					
 				}
 			}
+			break;
 		}
 		case 180:{
 			if(blocks[0].getColumna() != 9) {
@@ -65,6 +67,7 @@ public class TetriminoJ extends Tetrimino{
 					
 				}
 			}
+			break;
 		}
 		case 270:{
 			if(blocks[3].getColumna() != 9) {
@@ -85,7 +88,7 @@ public class TetriminoJ extends Tetrimino{
 				}
 				
 			}
-			
+			break;
 		}
 		}
 		
@@ -112,6 +115,7 @@ public class TetriminoJ extends Tetrimino{
 					
 				}
 			}
+			break;
 		} 
 		case 90:{
 			if(blocks[1].getColumna() != 0) {
@@ -130,6 +134,7 @@ public class TetriminoJ extends Tetrimino{
 					
 				}
 			}
+			break;
 		}
 		case 180:{
 			if(blocks[3].getColumna() != 0) {
@@ -147,6 +152,7 @@ public class TetriminoJ extends Tetrimino{
 					
 				}
 			}
+			break;
 		}
 		case 270:{
 			if(blocks[0].getColumna() != 0) {
@@ -166,7 +172,7 @@ public class TetriminoJ extends Tetrimino{
 					
 				}
 			}
-			
+			break;
 			
 		}
 	}
@@ -201,7 +207,7 @@ public class TetriminoJ extends Tetrimino{
 				
 			}
 			
-			
+			break;
 		}
 		case 90:{
 			if(blocks[3].getFila() == 20)
@@ -227,7 +233,7 @@ public class TetriminoJ extends Tetrimino{
 			}
 			
 			
-			
+			break;
 		}
 		case 180:{
 			if(blocks[0].getFila() == 20)
@@ -252,6 +258,8 @@ public class TetriminoJ extends Tetrimino{
 				}
 				
 			}
+			
+			break;
 		}
 		case 270:{
 			if(blocks[0].getFila() == 20)
@@ -274,6 +282,7 @@ public class TetriminoJ extends Tetrimino{
 					puedeBajar = false;
 				
 			}
+			break;
 		}
 		}
 		return puedeBajar;
@@ -334,7 +343,7 @@ public class TetriminoJ extends Tetrimino{
 				
 			}
 				
-			
+			break;
 		}
 		case 90:{
 			if(blocks[2].getColumna()==0) {//CASO ESPECIAL: wallkick limite izquierdo
@@ -397,7 +406,7 @@ public class TetriminoJ extends Tetrimino{
 				
 			}
 			
-			
+			break;
 		}
 		case 180:{
 			
@@ -451,7 +460,7 @@ public class TetriminoJ extends Tetrimino{
 				
 			}
 			
-	
+			break;
 		}
 		case 270:{
 			int [][] bloquesConflictivos = new int[2][2];
@@ -605,7 +614,7 @@ public class TetriminoJ extends Tetrimino{
 				}
 				
 			}
-			
+			break;
 		}
 		case 90:{
 			
@@ -671,7 +680,7 @@ public class TetriminoJ extends Tetrimino{
 		
 					
 			}
-	
+			break;
 		}
 		case 180:{
 			int [][] bloquesConflictivos = new int[3][2];
@@ -723,7 +732,7 @@ public class TetriminoJ extends Tetrimino{
 				
 			}
 			
-	
+			break;
 		}
 		case 270:{
 			
@@ -783,8 +792,9 @@ public class TetriminoJ extends Tetrimino{
 				
 			}
 			
-		
+			break;
 		}
+		
 		}
 		
 	}
@@ -800,6 +810,7 @@ public class TetriminoJ extends Tetrimino{
 			filasOcupadas = new int[2];
 			filasOcupadas[0] = filaBloque0;
 			filasOcupadas[1] = filaBloque0+1;
+			break;
 		}
 		
 		case 90:{
@@ -807,7 +818,8 @@ public class TetriminoJ extends Tetrimino{
 			filasOcupadas = new int[3];
 			filasOcupadas[0] = filaBloque1;
 			filasOcupadas[1] = filaBloque1+1;
-			filasOcupadas[2] = filaBloque1+2;	
+			filasOcupadas[2] = filaBloque1+2;
+			break;
 		}
 		
 		case 180:{
@@ -815,6 +827,7 @@ public class TetriminoJ extends Tetrimino{
 			filasOcupadas = new int[2];
 			filasOcupadas[0] = filaBloque1;
 			filasOcupadas[1] = filaBloque1+1;
+			break;
 		}
 		
 		case 270:{
@@ -823,6 +836,7 @@ public class TetriminoJ extends Tetrimino{
 			filasOcupadas[0] = filaBloque3;
 			filasOcupadas[1] = filaBloque3+1;
 			filasOcupadas[2] = filaBloque3+2;	
+			break;
 		}
 		
 		}

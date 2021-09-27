@@ -29,6 +29,7 @@ public class TetriminoZ extends Tetrimino{
 							blocks[i].setColumna(blocks[i].getColumna() + 1);
 					}
 				}
+				break;
 			}
 			
 			case 90:{
@@ -67,6 +68,7 @@ public class TetriminoZ extends Tetrimino{
 							blocks[i].setColumna(blocks[i].getColumna() - 1);
 					}
 				}
+				break;
 			}
 			
 			case 90:{
@@ -114,6 +116,7 @@ public class TetriminoZ extends Tetrimino{
 				}
 				else
 					colision = true;
+				break;
 			}
 			
 			case 90:{
@@ -246,6 +249,7 @@ public class TetriminoZ extends Tetrimino{
 				}
 	
 			}
+			break;
 		}
 		case 90:{
 			
@@ -330,15 +334,15 @@ public class TetriminoZ extends Tetrimino{
 		
 		switch(rotation) {
 			case 0:{
-				filasOcupadas = new int[2];
-				
+				filasOcupadas = new int[2];	
 				filasOcupadas[0] = blocks[0].getFila();
 				filasOcupadas[1] = filasOcupadas[0]+1;
+				break;
 			}
+			
 			
 			case 90:{
 				filasOcupadas = new int[3];
-				
 				filasOcupadas[0] = blocks[0].getFila();
 				filasOcupadas[1] = filasOcupadas[0]+1;
 				filasOcupadas[2] = filasOcupadas[0]+2;
