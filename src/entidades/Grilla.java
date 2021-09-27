@@ -4,7 +4,7 @@ public class Grilla {
 	
 	private int filas;
 	private int columnas;
-	private static Bloque[][] matriz;
+	private Bloque[][] matriz;
 	
 	public Grilla() {
 		filas = 21;
@@ -16,7 +16,7 @@ public class Grilla {
 				matriz[i][j] = null;
 	}
 	
-	public static boolean chequearColision(int[][] posiciones) {
+	public boolean chequearColision(int[][] posiciones) {
 		boolean colisiona = false;
 		int i = 0;
 		while(!colisiona && i<posiciones.length) {

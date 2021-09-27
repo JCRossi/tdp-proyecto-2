@@ -4,6 +4,7 @@ public abstract class Tetrimino {
 	
 	protected int rotation;
 	protected Bloque[] blocks;
+	protected Grilla grilla;
 
 	public abstract void moverDerecha();
 	

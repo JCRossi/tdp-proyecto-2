@@ -2,13 +2,14 @@ package entidades;
 
 public class TetriminoT extends Tetrimino {
 
-	public TetriminoT() {
+	public TetriminoT(Grilla g) {
 		blocks = new Bloque[4];
 		blocks[2]= new Bloque(0,4,5);
 		blocks[1]= new Bloque(1,3,5);
 		blocks[0]= new Bloque(1,4,5);
 		blocks[3]= new Bloque(1,5,5);
-		rotation = 0;		
+		rotation = 0;
+		grilla = g;
 	}
 
 	@Override
@@ -25,7 +26,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[0][1]=columnaCentro+1;
 				bloquesConflictivos[1][0]=filaCentro;
 				bloquesConflictivos[1][1]=columnaCentro+2;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[0].setColumna(columnaCentro+1);
 					blocks[1].setColumna(columnaCentro);
 					blocks[2].setColumna(columnaCentro+1);
@@ -44,7 +45,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[1][1]=columnaCentro+2;
 				bloquesConflictivos[2][0]=filaCentro+1;
 				bloquesConflictivos[2][1]=columnaCentro+1;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[0].setColumna(columnaCentro+1);
 					blocks[1].setColumna(columnaCentro+1);
 					blocks[2].setColumna(columnaCentro+1);
@@ -61,7 +62,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[0][1]=columnaCentro+1;
 				bloquesConflictivos[1][0]=filaCentro;
 				bloquesConflictivos[1][1]=columnaCentro+2;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[0].setColumna(columnaCentro+1);
 					blocks[1].setColumna(columnaCentro+1);
 					blocks[2].setColumna(columnaCentro);
@@ -80,7 +81,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[1][1]=columnaCentro+1;
 				bloquesConflictivos[2][0]=filaCentro-1;
 				bloquesConflictivos[2][1]=columnaCentro+1;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[0].setColumna(columnaCentro+1);
 					blocks[1].setColumna(columnaCentro+1);
 					blocks[2].setColumna(columnaCentro);
@@ -108,7 +109,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[0][1]=columnaCentro-1;
 				bloquesConflictivos[1][0]=filaCentro;
 				bloquesConflictivos[1][1]=columnaCentro-2;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[0].setColumna(columnaCentro-1);
 					blocks[1].setColumna(columnaCentro-2);
 					blocks[2].setColumna(columnaCentro-1);
@@ -127,7 +128,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[1][1]=columnaCentro-1;
 				bloquesConflictivos[2][0]=filaCentro+1;
 				bloquesConflictivos[2][1]=columnaCentro-1;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[0].setColumna(columnaCentro-1);
 					blocks[1].setColumna(columnaCentro-1);
 					blocks[2].setColumna(columnaCentro-1);
@@ -144,7 +145,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[0][1]=columnaCentro-1;
 				bloquesConflictivos[1][0]=filaCentro;
 				bloquesConflictivos[1][1]=columnaCentro-2;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[0].setColumna(columnaCentro-1);
 					blocks[1].setColumna(columnaCentro-1);
 					blocks[2].setColumna(columnaCentro-2);
@@ -163,7 +164,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[1][1]=columnaCentro-2;
 				bloquesConflictivos[2][0]=filaCentro+1;
 				bloquesConflictivos[2][1]=columnaCentro-1;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[0].setColumna(columnaCentro-1);
 					blocks[1].setColumna(columnaCentro-1);
 					blocks[2].setColumna(columnaCentro-2);
@@ -193,7 +194,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[1][1]=columnaCentro;
 				bloquesConflictivos[2][0]=filaCentro+1;
 				bloquesConflictivos[2][1]=columnaCentro+1;
-				puedeBajar = Grilla.chequearColision(bloquesConflictivos);
+				puedeBajar = grilla.chequearColision(bloquesConflictivos);
 				if(puedeBajar) {
 					blocks[0].setFila(filaCentro+1);
 					blocks[1].setFila(filaCentro+1);
@@ -211,7 +212,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[0][1]=columnaCentro;
 				bloquesConflictivos[1][0]=filaCentro+1;
 				bloquesConflictivos[1][1]=columnaCentro+1;
-				puedeBajar = !Grilla.chequearColision(bloquesConflictivos);
+				puedeBajar = !grilla.chequearColision(bloquesConflictivos);
 				if(puedeBajar) {
 					blocks[0].setFila(filaCentro+1);
 					blocks[1].setFila(filaCentro+2);
@@ -231,7 +232,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[1][1]=columnaCentro;
 				bloquesConflictivos[2][0]=filaCentro+1;
 				bloquesConflictivos[2][1]=columnaCentro+1;
-				puedeBajar = !Grilla.chequearColision(bloquesConflictivos);
+				puedeBajar = !grilla.chequearColision(bloquesConflictivos);
 				if(puedeBajar) {
 					blocks[0].setFila(filaCentro+1);
 					blocks[1].setFila(filaCentro+2);
@@ -249,7 +250,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[0][1]=columnaCentro;
 				bloquesConflictivos[1][0]=filaCentro+1;
 				bloquesConflictivos[1][1]=columnaCentro-1;
-				puedeBajar = !Grilla.chequearColision(bloquesConflictivos);
+				puedeBajar = !grilla.chequearColision(bloquesConflictivos);
 				if(puedeBajar) {
 					blocks[0].setFila(filaCentro+1);
 					blocks[1].setFila(filaCentro+2);
@@ -275,7 +276,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos = new int[1][2];
 				bloquesConflictivos[0][0] = filaCentro+1;
 				bloquesConflictivos[0][1] = columnaCentro;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[1].setColumna(columnaCentro);
 					blocks[1].setFila(filaCentro+1);
 					rotation = 90;
@@ -289,7 +290,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro-1;
 					bloquesConflictivos[3][0] = filaCentro;
 					bloquesConflictivos[3][1] = columnaCentro;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -307,7 +308,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[2][1] = columnaCentro;
 				bloquesConflictivos[3][0] = filaCentro-1;
 				bloquesConflictivos[3][1] = columnaCentro+1;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					for(int i=0; i<4; i++) {
 						blocks[i].setFila(bloquesConflictivos[i][0]);
 						blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -323,7 +324,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro-1;
 					bloquesConflictivos[3][0] = filaCentro-1;
 					bloquesConflictivos[3][1] = columnaCentro;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -340,7 +341,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos = new int[1][2];
 				bloquesConflictivos[0][0] = filaCentro;
 				bloquesConflictivos[0][1] = columnaCentro-1;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[2].setColumna(columnaCentro-1);
 					blocks[2].setFila(filaCentro);
 					rotation = 180;
@@ -354,7 +355,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro-1;
 					bloquesConflictivos[3][0] = filaCentro-1;
 					bloquesConflictivos[3][1] = columnaCentro+1;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -372,7 +373,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[2][1] = columnaCentro;
 				bloquesConflictivos[3][0] = filaCentro;
 				bloquesConflictivos[3][1] = columnaCentro+2;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					for(int i=0; i<4; i++) {
 						blocks[i].setFila(bloquesConflictivos[i][0]);
 						blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -388,7 +389,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro;
 					bloquesConflictivos[3][0] = filaCentro-1;
 					bloquesConflictivos[3][1] = columnaCentro+2;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -405,7 +406,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos = new int[1][2];
 				bloquesConflictivos[0][0] = filaCentro-1;
 				bloquesConflictivos[0][1] = columnaCentro;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[3].setColumna(columnaCentro);
 					blocks[3].setFila(filaCentro-1);
 					rotation = 270;
@@ -419,7 +420,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro;
 					bloquesConflictivos[3][0] = filaCentro-1;
 					bloquesConflictivos[3][1] = columnaCentro+1;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -437,7 +438,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[2][1] = columnaCentro-1;
 				bloquesConflictivos[3][0] = filaCentro;
 				bloquesConflictivos[3][1] = columnaCentro;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					for(int i=0; i<4; i++) {
 						blocks[i].setFila(bloquesConflictivos[i][0]);
 						blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -453,7 +454,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro;
 					bloquesConflictivos[3][0] = filaCentro;
 					bloquesConflictivos[3][1] = columnaCentro+1;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -470,7 +471,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos = new int[1][2];
 				bloquesConflictivos[0][0] = filaCentro;
 				bloquesConflictivos[0][1] = columnaCentro+1;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[1].setColumna(columnaCentro-1);
 					blocks[1].setFila(filaCentro);
 					blocks[2].setColumna(columnaCentro);
@@ -488,7 +489,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro;
 					bloquesConflictivos[3][0] = filaCentro+1;
 					bloquesConflictivos[3][1] = columnaCentro+1;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -506,7 +507,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[2][1] = columnaCentro-1;
 				bloquesConflictivos[3][0] = filaCentro;
 				bloquesConflictivos[3][1] = columnaCentro;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					for(int i=0; i<4; i++) {
 						blocks[i].setFila(bloquesConflictivos[i][0]);
 						blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -522,7 +523,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro-1;
 					bloquesConflictivos[3][0] = filaCentro+1;
 					bloquesConflictivos[3][1] = columnaCentro;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -549,7 +550,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos = new int[1][2];
 				bloquesConflictivos[0][0] = filaCentro+1;
 				bloquesConflictivos[0][1] = columnaCentro;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[1].setColumna(columnaCentro);
 					blocks[1].setFila(filaCentro+1);
 					blocks[2].setColumna(columnaCentro-1);
@@ -567,7 +568,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro;
 					bloquesConflictivos[3][0] = filaCentro-1;
 					bloquesConflictivos[3][1] = columnaCentro+1;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -585,7 +586,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[2][1] = columnaCentro-1;
 				bloquesConflictivos[3][0] = filaCentro-2;
 				bloquesConflictivos[3][1] = columnaCentro;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					for(int i=0; i<4; i++) {
 						blocks[i].setFila(bloquesConflictivos[i][0]);
 						blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -601,7 +602,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro;
 					bloquesConflictivos[3][0] = filaCentro-2;
 					bloquesConflictivos[3][1] = columnaCentro+1;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -618,7 +619,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos = new int[1][2];
 				bloquesConflictivos[0][0] = filaCentro;
 				bloquesConflictivos[0][1] = columnaCentro-1;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[1].setColumna(columnaCentro-1);
 					blocks[1].setFila(filaCentro);
 					rotation = 0;
@@ -632,7 +633,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro;
 					bloquesConflictivos[3][0] = filaCentro+1;
 					bloquesConflictivos[3][1] = columnaCentro+1;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -650,7 +651,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[2][1] = columnaCentro+1;
 				bloquesConflictivos[3][0] = filaCentro;
 				bloquesConflictivos[3][1] = columnaCentro+2;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					for(int i=0; i<4; i++) {
 						blocks[i].setFila(bloquesConflictivos[i][0]);
 						blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -666,7 +667,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro+1;
 					bloquesConflictivos[3][0] = filaCentro+1;
 					bloquesConflictivos[3][1] = columnaCentro+2;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -683,7 +684,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos = new int[1][2];
 				bloquesConflictivos[0][0] = filaCentro-1;
 				bloquesConflictivos[0][1] = columnaCentro;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[2].setColumna(columnaCentro);
 					blocks[2].setFila(filaCentro-1);
 					rotation = 90;
@@ -697,7 +698,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro-1;
 					bloquesConflictivos[3][0] = filaCentro;
 					bloquesConflictivos[3][1] = columnaCentro;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -715,7 +716,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[2][1] = columnaCentro;
 				bloquesConflictivos[3][0] = filaCentro+1;
 				bloquesConflictivos[3][1] = columnaCentro+1;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					for(int i=0; i<4; i++) {
 						blocks[i].setFila(bloquesConflictivos[i][0]);
 						blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -731,7 +732,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro-1;
 					bloquesConflictivos[3][0] = filaCentro+1;
 					bloquesConflictivos[3][1] = columnaCentro;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -748,7 +749,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos = new int[1][2];
 				bloquesConflictivos[0][0] = filaCentro;
 				bloquesConflictivos[0][1] = columnaCentro+1;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					blocks[3].setColumna(columnaCentro+1);
 					blocks[3].setFila(filaCentro);
 					rotation = 180;
@@ -762,7 +763,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro-1;
 					bloquesConflictivos[3][0] = filaCentro-1;
 					bloquesConflictivos[3][1] = columnaCentro+1;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -780,7 +781,7 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[2][1] = columnaCentro-2;
 				bloquesConflictivos[3][0] = filaCentro;
 				bloquesConflictivos[3][1] = columnaCentro;
-				if(!Grilla.chequearColision(bloquesConflictivos)) {
+				if(!grilla.chequearColision(bloquesConflictivos)) {
 					for(int i=0; i<4; i++) {
 						blocks[i].setFila(bloquesConflictivos[i][0]);
 						blocks[i].setColumna(bloquesConflictivos[i][1]);	
@@ -796,7 +797,7 @@ public class TetriminoT extends Tetrimino {
 					bloquesConflictivos[2][1] = columnaCentro-2;
 					bloquesConflictivos[3][0] = filaCentro-1;
 					bloquesConflictivos[3][1] = columnaCentro;
-					if(!Grilla.chequearColision(bloquesConflictivos)) {
+					if(!grilla.chequearColision(bloquesConflictivos)) {
 						for(int i=0; i<4; i++) {
 							blocks[i].setFila(bloquesConflictivos[i][0]);
 							blocks[i].setColumna(bloquesConflictivos[i][1]);	

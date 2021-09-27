@@ -46,74 +46,74 @@ public class Logica {
 			
 			switch(listaTetriminos[index]) {
 				case 'I':{
-					tetriminoActual = new TetriminoI();
+					tetriminoActual = new TetriminoI(grilla);
 					break;
 				}
 				
 				case 'J':{
-					tetriminoActual = new TetriminoJ();
+					tetriminoActual = new TetriminoJ(grilla);
 					break;
 				}
 
 				case 'L':{
-					tetriminoActual = new TetriminoL();
+					tetriminoActual = new TetriminoL(grilla);
 					break;
 				}
 				
 				case 'O':{
-					tetriminoActual = new TetriminoO();
+					tetriminoActual = new TetriminoO(grilla);
 					break;
 				}
 				
 				case 'S':{
-					tetriminoActual = new TetriminoS();
+					tetriminoActual = new TetriminoS(grilla);
 					break;
 				}
 				
 				case 'T':{
-					tetriminoActual = new TetriminoT();
+					tetriminoActual = new TetriminoT(grilla);
 					break;
 				}
 				
 				case 'Z':{
-					tetriminoActual = new TetriminoZ();
+					tetriminoActual = new TetriminoZ(grilla);
 					break;
 				}
 			}
 			
 			switch(listaTetriminos[indexProx]) {
 				case 'I':{
-					proximoTetrimino = new TetriminoI();
+					proximoTetrimino = new TetriminoI(grilla);
 					break;
 				}
 				
 				case 'J':{
-					proximoTetrimino = new TetriminoJ();
+					proximoTetrimino = new TetriminoJ(grilla);
 					break;
 				}
 	
 				case 'L':{
-					proximoTetrimino = new TetriminoL();
+					proximoTetrimino = new TetriminoL(grilla);
 					break;
 				}
 				
 				case 'O':{
-					proximoTetrimino = new TetriminoO();
+					proximoTetrimino = new TetriminoO(grilla);
 					break;
 				}
 				
 				case 'S':{
-					proximoTetrimino = new TetriminoS();
+					proximoTetrimino = new TetriminoS(grilla);
 					break;
 				}
 				
 				case 'T':{
-					proximoTetrimino = new TetriminoT();
+					proximoTetrimino = new TetriminoT(grilla);
 					break;
 				}
 				
 				case 'Z':{
-					proximoTetrimino = new TetriminoZ();
+					proximoTetrimino = new TetriminoZ(grilla);
 					break;
 				}
 			}
@@ -126,37 +126,37 @@ public class Logica {
 			
 			switch(listaTetriminos[index]) {
 				case 'I':{
-					proximoTetrimino = new TetriminoI();
+					proximoTetrimino = new TetriminoI(grilla);
 					break;
 				}
 				
 				case 'J':{
-					proximoTetrimino = new TetriminoJ();
+					proximoTetrimino = new TetriminoJ(grilla);
 					break;
 				}
 
 				case 'L':{
-					proximoTetrimino = new TetriminoL();
+					proximoTetrimino = new TetriminoL(grilla);
 					break;
 				}
 				
 				case 'O':{
-					proximoTetrimino = new TetriminoO();
+					proximoTetrimino = new TetriminoO(grilla);
 					break;
 				}
 				
 				case 'S':{
-					proximoTetrimino = new TetriminoS();
+					proximoTetrimino = new TetriminoS(grilla);
 					break;
 				}
 				
 				case 'T':{
-					proximoTetrimino = new TetriminoT();
+					proximoTetrimino = new TetriminoT(grilla);
 					break;
 				}
 				
 				case 'Z':{
-					proximoTetrimino = new TetriminoZ();
+					proximoTetrimino = new TetriminoZ(grilla);
 					break;
 				}
 			}

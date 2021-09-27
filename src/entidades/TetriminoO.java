@@ -3,12 +3,13 @@ package entidades;
 public class TetriminoO extends Tetrimino{
 
 
-	public TetriminoO() {
+	public TetriminoO(Grilla g) {
 		blocks = new Bloque[4];
 		blocks[0]= new Bloque(0,4,3);
 		blocks[1]= new Bloque(1,4,3);
 		blocks[2]= new Bloque(0,5,3);
 		blocks[3]= new Bloque(1,5,3);
+		grilla = g;
 	}
 
 	@Override
@@ -20,7 +21,7 @@ public class TetriminoO extends Tetrimino{
 			bloquesConflictivos[0][1] =	columna+1;
 			bloquesConflictivos[1][0] = blocks[3].getFila();
 			bloquesConflictivos[1][1] = blocks[3].getColumna()+1;
-			if(!Grilla.chequearColision(bloquesConflictivos)) {
+			if(!grilla.chequearColision(bloquesConflictivos)) {
 				for(int i = 0; i<4; i++)
 					blocks[i].setColumna(blocks[i].getColumna()+1);
 			}
@@ -36,7 +37,7 @@ public class TetriminoO extends Tetrimino{
 			bloquesConflictivos[0][1] =	columna-1;
 			bloquesConflictivos[1][0] = blocks[1].getFila();
 			bloquesConflictivos[1][1] = blocks[1].getColumna()-1;
-			if(!Grilla.chequearColision(bloquesConflictivos)) {
+			if(!grilla.chequearColision(bloquesConflictivos)) {
 				for(int i = 0; i<4; i++)
 					blocks[i].setColumna(blocks[i].getColumna()-1);
 			}
@@ -53,7 +54,7 @@ public class TetriminoO extends Tetrimino{
 			bloquesConflictivos[0][1] =	blocks[1].getColumna();
 			bloquesConflictivos[1][0] = blocks[3].getFila()+1;
 			bloquesConflictivos[1][1] = blocks[3].getColumna();
-			puedeBajar = !Grilla.chequearColision(bloquesConflictivos);
+			puedeBajar = !grilla.chequearColision(bloquesConflictivos);
 			if(puedeBajar) {
 				for(int i = 0; i<4; i++)
 					blocks[i].setFila(blocks[i].getFila()+1);
