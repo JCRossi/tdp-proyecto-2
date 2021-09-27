@@ -32,6 +32,7 @@ public class Interfaz extends JFrame {
 	private Logica juego;
 	private JLabel[][] grillaGrafica;
 	private JLabel lblPuntaje;
+	private JLabel lblTiempo;
 	
 	/**
 	 * Create the frame.
@@ -74,6 +75,19 @@ public class Interfaz extends JFrame {
 		lblPuntaje.setForeground(Color.WHITE);
 		lblPuntaje.setBounds(10, 49, 87, 19);
 		contentPane.add(lblPuntaje);
+		
+		JLabel lblRelojText = new JLabel("Tiempo: ");
+		lblRelojText.setFont(new Font("Wide Latin", Font.BOLD, 12));
+		lblRelojText.setForeground(Color.WHITE);
+		lblRelojText.setBounds(401, 10, 87, 37);
+		contentPane.add(lblRelojText);
+		
+		lblTiempo = new JLabel(""+0+":"+0+0);
+		lblTiempo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTiempo.setFont(new Font("Wide Latin", Font.BOLD, 11));
+		lblTiempo.setForeground(Color.WHITE);
+		lblTiempo.setBounds(401, 49, 87, 19);
+		contentPane.add(lblTiempo);
 		
 		//Detecta acciones de teclado
 		KeyListener eventoTeclado = new KeyListener() {
@@ -125,5 +139,13 @@ public class Interfaz extends JFrame {
 	
 	public void actualizarPuntajeGrafico(int puntos) {
 		lblPuntaje.setText(""+puntos);
+	}
+	
+	public void actualizarTiempoGrafico(int minutos, int segundos) {
+		int i = segundos;
+		if (i<10) {
+		lblTiempo.setText(minutos + ":"+0+ segundos);
+		}else
+		lblTiempo.setText(minutos + ":"+ segundos);
 	}
 }

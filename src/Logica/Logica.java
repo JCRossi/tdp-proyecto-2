@@ -234,7 +234,7 @@ public class Logica {
 	
 	//Este método recibe el tiempo directamente desde el reloj y actualiza a la GUI
 	public void ActualizarRelojGui(int minutos, int segundos) {
-		// TODO Auto-generated method stub
+		pantalla.actualizarTiempoGrafico(minutos, segundos);
 			
 	}
 	
