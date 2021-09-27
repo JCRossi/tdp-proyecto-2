@@ -22,6 +22,8 @@ import java.awt.Dimension;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class Interfaz extends JFrame {
 
@@ -29,6 +31,7 @@ public class Interfaz extends JFrame {
 	private ImageIcon fondoTetrisInGame;
 	private Logica juego;
 	private JLabel[][] grillaGrafica;
+	private JLabel lblPuntaje;
 	
 	/**
 	 * Create the frame.
@@ -58,6 +61,19 @@ public class Interfaz extends JFrame {
 		panelGrilla.setBounds(107, 0, 284, 436);
 		contentPane.add(panelGrilla);
 		panelGrilla.setLayout(new GridLayout(21, 10));
+		
+		JLabel lblPuntajeText = new JLabel("Puntaje: ");
+		lblPuntajeText.setFont(new Font("Wide Latin", Font.BOLD, 11));
+		lblPuntajeText.setForeground(Color.WHITE);
+		lblPuntajeText.setBounds(10, 11, 87, 37);
+		contentPane.add(lblPuntajeText);
+		
+		lblPuntaje = new JLabel(""+0);
+		lblPuntaje.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPuntaje.setFont(new Font("Wide Latin", Font.BOLD, 11));
+		lblPuntaje.setForeground(Color.WHITE);
+		lblPuntaje.setBounds(10, 49, 87, 19);
+		contentPane.add(lblPuntaje);
 		
 		//Detecta acciones de teclado
 		KeyListener eventoTeclado = new KeyListener() {
@@ -105,5 +121,9 @@ public class Interfaz extends JFrame {
 		for(int j = 0; j < grillaGrafica[0].length; j++)
 			for(int i = 0; i < grillaGrafica.length; i++)
 				panelGrilla.add(grillaGrafica[i][j]);
+	}
+	
+	public void actualizarPuntajeGrafico(int puntos) {
+		lblPuntaje.setText(""+puntos);
 	}
 }

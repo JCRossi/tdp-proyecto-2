@@ -4,10 +4,10 @@ public class TetriminoJ extends Tetrimino{
 	
 	public TetriminoJ() {
 		blocks = new Bloque[4];
-		blocks[0]= new Bloque(0,4,"azul");
-		blocks[1]= new Bloque(1,4,"azul");
-		blocks[2]= new Bloque(1,5,"azul");
-		blocks[3]= new Bloque(1,6,"azul");
+		blocks[0]= new Bloque(0,4,1);
+		blocks[1]= new Bloque(1,4,1);
+		blocks[2]= new Bloque(1,5,1);
+		blocks[3]= new Bloque(1,6,1);
 	}
 
 	@Override

@@ -188,6 +188,8 @@ public class Logica {
 			case 4:
 				puntos.setPuntaje(puntos.getPuntaje() + 800);
 		}
+		
+		pantalla.actualizarPuntajeGrafico(puntos.getPuntaje());
 	}
 
 	

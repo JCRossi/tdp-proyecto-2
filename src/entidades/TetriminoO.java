@@ -5,10 +5,10 @@ public class TetriminoO extends Tetrimino{
 
 	public TetriminoO() {
 		blocks = new Bloque[4];
-		blocks[0]= new Bloque(0,4,"amarillo");
-		blocks[1]= new Bloque(1,4,"amarillo");
-		blocks[2]= new Bloque(0,5,"amarillo");
-		blocks[3]= new Bloque(1,5,"amarillo");
+		blocks[0]= new Bloque(0,4,3);
+		blocks[1]= new Bloque(1,4,3);
+		blocks[2]= new Bloque(0,5,3);
+		blocks[3]= new Bloque(1,5,3);
 	}
 
 	@Override

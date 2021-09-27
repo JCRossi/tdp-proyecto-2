@@ -3,12 +3,13 @@ package entidades;
 public class Bloque {
 	private int fila;
 	private int columna;
-	private String color;
+	private BloqueGrafico imagenBloque;
 	
-	public Bloque(int fil, int colu, String col) {
+	public Bloque(int fil, int colu, int index) {
 		this.fila = fil;
 		this.columna = colu;
-		this.color = col;
+		imagenBloque = new BloqueGrafico();
+		imagenBloque.actualizar(index);
 	}
 	
 	public void setFila(int f) {
@@ -25,10 +26,6 @@ public class Bloque {
 	
 	public int getColumna() {
 		return columna;
-	}
-	
-	public String getColor() {
-		return color;
 	}
 
 }

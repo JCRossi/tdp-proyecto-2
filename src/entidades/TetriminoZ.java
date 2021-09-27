@@ -5,10 +5,10 @@ public class TetriminoZ extends Tetrimino{
 	public TetriminoZ() {
 		blocks = new Bloque[4];
 		
-		blocks[0] = new Bloque(0, 3, "rojo");
-		blocks[1] = new Bloque(0, 4, "rojo");
-		blocks[2] = new Bloque(1, 4, "rojo");
-		blocks[3] = new Bloque(1, 5, "rojo");
+		blocks[0] = new Bloque(0, 3, 6);
+		blocks[1] = new Bloque(0, 4, 6);
+		blocks[2] = new Bloque(1, 4, 6);
+		blocks[3] = new Bloque(1, 5, 6);
 		
 		rotation = 0;
 	}
