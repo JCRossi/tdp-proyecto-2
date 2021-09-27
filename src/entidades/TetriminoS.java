@@ -324,16 +324,16 @@ public class TetriminoS extends Tetrimino{
 			case 0:{
 				filasOcupadas = new int[2];
 				
-				filasOcupadas[0] = blocks[0].getFila();
-				filasOcupadas[1] = blocks[2].getFila();
+				filasOcupadas[0] = blocks[2].getFila();
+				filasOcupadas[1] = filasOcupadas[0]+1;
 			}
 			
 			case 90:{
 				filasOcupadas = new int[3];
 				
 				filasOcupadas[0] = blocks[0].getFila();
-				filasOcupadas[1] = blocks[2].getFila();
-				filasOcupadas[2] = blocks[3].getFila();
+				filasOcupadas[1] = filasOcupadas[0]+1;
+				filasOcupadas[2] = filasOcupadas[0]+2;
 			}
 		}
 		

@@ -193,9 +193,9 @@ public class TetriminoI extends Tetrimino{
 			filasOcupadas = new int[4];
 			
 			filasOcupadas[0] = blocks[0].getFila();
-			filasOcupadas[1] = blocks[1].getFila();
-			filasOcupadas[2] = blocks[2].getFila();
-			filasOcupadas[3] = blocks[3].getFila();
+			filasOcupadas[1] = filasOcupadas[0]+1;
+			filasOcupadas[2] = filasOcupadas[0]+2;
+			filasOcupadas[3] = filasOcupadas[0]+3;
 		} else {
 			filasOcupadas = new int[1];			
 			filasOcupadas[0] = blocks[2].getFila();

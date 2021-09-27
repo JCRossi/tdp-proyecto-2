@@ -47,10 +47,35 @@ public class Grilla {
 					filaCompletada = false;
 			}
 			
-			if(filaCompletada)
+			if(filaCompletada) {
+				actualizarFilas(filasAChequear[i]);
 				filasDespejadas++;
+			}
+				
+			filaCompletada=true;		
 		}
 		
 		return filasDespejadas;
+	}
+
+	private void actualizarFilas(int fila) {
+		for(int i=0; i<10; i++) {
+			matriz[fila][i]=null;
+		}
+		Bloque bloqueActual;
+		boolean filaVacia=false;
+		fila--;
+		while(!filaVacia && fila>=0) {
+			filaVacia=true;
+			for(int i=0; i<10; i++) {
+				bloqueActual=matriz[fila][i];
+				if (bloqueActual!=null) {
+					matriz[fila+1][i]=bloqueActual;
+					matriz[fila][i]=null;
+					filaVacia=false;
+				}
+			}
+		}
+		
 	}
 }

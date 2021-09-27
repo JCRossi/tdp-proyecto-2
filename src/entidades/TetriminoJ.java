@@ -792,21 +792,39 @@ public class TetriminoJ extends Tetrimino{
 	@Override
 	public int[] filasOcupadas() {
 		
-		int [] filasOcupadas;
-		if(rotation == 0 || rotation ==180) {
+		int [] filasOcupadas = null;
+		switch(rotation) {
+		
+		case 0:{
 			int filaBloque0= blocks[0].getFila();
-			int filaBloque1= blocks[0].getFila();
 			filasOcupadas = new int[2];
 			filasOcupadas[0] = filaBloque0;
-			filasOcupadas[1] = filaBloque1;
-		}else {
+			filasOcupadas[1] = filaBloque0+1;
+		}
+		
+		case 90:{
 			int filaBloque1= blocks[1].getFila();
-			int filaBloque2= blocks[2].getFila();
-			int filaBloque3= blocks[3].getFila();
 			filasOcupadas = new int[3];
 			filasOcupadas[0] = filaBloque1;
-			filasOcupadas[1] = filaBloque2;
-			filasOcupadas[2] = filaBloque3;	
+			filasOcupadas[1] = filaBloque1+1;
+			filasOcupadas[2] = filaBloque1+2;	
+		}
+		
+		case 180:{
+			int filaBloque1= blocks[1].getFila();
+			filasOcupadas = new int[2];
+			filasOcupadas[0] = filaBloque1;
+			filasOcupadas[1] = filaBloque1+1;
+		}
+		
+		case 270:{
+			int filaBloque3= blocks[3].getFila();
+			filasOcupadas = new int[3];
+			filasOcupadas[0] = filaBloque3;
+			filasOcupadas[1] = filaBloque3+1;
+			filasOcupadas[2] = filaBloque3+2;	
+		}
+		
 		}
 		
 		return filasOcupadas;

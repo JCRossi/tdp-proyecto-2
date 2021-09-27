@@ -73,7 +73,7 @@ public class TetriminoO extends Tetrimino{
 	public int[] filasOcupadas() {
 		int[] filasOcupadas = new int[2];
 		filasOcupadas[0]= blocks[0].getFila();
-		filasOcupadas[1]= blocks[1].getFila();
+		filasOcupadas[1]= filasOcupadas[0]+1;
 		return filasOcupadas;
 		
 	}

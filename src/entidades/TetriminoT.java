@@ -805,27 +805,27 @@ public class TetriminoT extends Tetrimino {
 		case 0:{
 			filasOcupadas = new int[2];
 			filasOcupadas[0] = blocks[2].getFila();
-			filasOcupadas[1] = blocks[0].getFila();			
+			filasOcupadas[1] = filasOcupadas[0]+1;		
 		}
 		
 		case 90:{
 			filasOcupadas = new int[3];
 			filasOcupadas[0] = blocks[2].getFila();
-			filasOcupadas[1] = blocks[0].getFila();
-			filasOcupadas[2] = blocks[1].getFila();
+			filasOcupadas[1] = filasOcupadas[0]+1;
+			filasOcupadas[2] = filasOcupadas[0]+2;
 		}
 		
 		case 180:{
 			filasOcupadas = new int[2];
 			filasOcupadas[0] = blocks[0].getFila();
-			filasOcupadas[1] = blocks[1].getFila();
+			filasOcupadas[1] = filasOcupadas[0]+1;
 		}
 		
 		case 270:{
 			filasOcupadas = new int[3];
 			filasOcupadas[0] = blocks[3].getFila();
-			filasOcupadas[1] = blocks[0].getFila();
-			filasOcupadas[2] = blocks[1].getFila();
+			filasOcupadas[1] = filasOcupadas[0]+1;
+			filasOcupadas[2] = filasOcupadas[0]+2;
 		}
 		
 		}
