@@ -36,6 +36,7 @@ public class Grilla {
 		}
 	}
 
+	//Falta que actualice grilla
 	public int despejar(int[] filasAChequear) {
 		int filasDespejadas = 0;
 		boolean filaCompletada = true;

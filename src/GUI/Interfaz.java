@@ -1,6 +1,7 @@
 package GUI;
 
 import Logica.*;
+import entidades.*;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -20,32 +21,41 @@ import java.awt.Graphics;
 import java.awt.Dimension;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
+import javax.swing.JTextField;
 
 public class Interfaz extends JFrame {
 
-	private JPanel contentPane;
+	private JPanel contentPane, panelGrilla;
 	private ImageIcon fondoTetrisInGame;
 	private Logica juego;
-
+	private JLabel[][] grillaGrafica;
+	
 	/**
 	 * Create the frame.
 	 */
 	public Interfaz(Logica newGame) {
 		setTitle("Tetris");
-		juego = newGame;
-		juego.setInterfaz(this);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/icono tetris 2.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		juego = newGame;
+		juego.setInterfaz(this);
+		grillaGrafica = new JLabel[21][10];
+		
+		for(int i = 0; i < grillaGrafica.length; i++)
+			for(int j = 0; j < grillaGrafica[0].length; j++)
+				grillaGrafica[i][j] = null;
+		
 		setBounds(100, 100, 514, 475);
-		contentPane = new JPanel();
+		contentPane = new Panel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panelGrilla = new JPanel();
-		panelGrilla.setForeground(Color.WHITE);
+		panelGrilla = new JPanel();
+		panelGrilla.setForeground(null);
 		panelGrilla.setBackground(Color.BLACK);
-		panelGrilla.setBounds(107, 0, 279, 436);
+		panelGrilla.setBounds(107, 0, 284, 436);
 		contentPane.add(panelGrilla);
 		panelGrilla.setLayout(new GridLayout(21, 10));
 		
@@ -89,8 +99,11 @@ public class Interfaz extends JFrame {
 		panelGrilla.addKeyListener(eventoTeclado);
 	}
 	
-	public void paint(Graphics g) {
-		fondoTetrisInGame = new ImageIcon(Interfaz.class.getResource("/images/fondoTetrisInGame.png"));
-		g.drawImage(fondoTetrisInGame.getImage(), 0, 0, getWidth(), getHeight(), this);
+	public void iniciarGridLayout() {
+		
+		
+		for(int j = 0; j < grillaGrafica[0].length; j++)
+			for(int i = 0; i < grillaGrafica.length; i++)
+				panelGrilla.add(grillaGrafica[i][j]);
 	}
 }

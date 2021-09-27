@@ -25,12 +25,12 @@ public class Logica {
 		puntos = new Puntaje();
 		grilla = new Grilla();
 		reloj = new Reloj(this);
-		hiloReloj = new Thread(this.reloj); //No estoy seguro si es necesario guardar el hilo
-		hiloReloj.start();
-
 		rand = new Random();
 		listaTetriminos = new char[] {'I', 'J', 'L', 'O', 'S', 'T', 'Z'};
 		primerTetrimino = true;
+		llamarNuevoTetrimino();
+		hiloReloj = new Thread(this.reloj); //No estoy seguro si es necesario guardar el hilo
+		hiloReloj.start();
 	}
 	
 	public void setInterfaz(Interfaz interfaz) {
@@ -157,9 +157,9 @@ public class Logica {
 				puedeBajar = tetriminoActual.moverAbajo();
 				
 				if(!puedeBajar) {
+					grilla.actualizarGrilla(tetriminoActual);
 					filasCompletadas = grilla.despejar(tetriminoActual.filasOcupadas());
 					actualizarPuntaje(filasCompletadas);
-					grilla.actualizarGrilla(tetriminoActual);
 					llamarNuevoTetrimino();
 				}	
 			}
@@ -189,17 +189,26 @@ public class Logica {
 				puntos.setPuntaje(puntos.getPuntaje() + 800);
 		}
 	}
+
+	
+	public void actualizarTetriminoGrafico() {
+		//pantalla.metodoDeActualziacion(tetriminoActual);
+	}
+	
+	public void actualizarGrillaGrafica() {
+		
+	}
+	
+	//Este método recibe el tiempo directamente desde el reloj y actualiza a la GUI
+	public void ActualizarRelojGui(int minutos, int segundos) {
+		// TODO Auto-generated method stub
+			
+	}
 	
 	public void finalizarJuego() {
 		//...
 		//...
 		reloj.frenarReloj();
 		//hiloReloj.stop();
-	}
-
-	//Este método recibe el tiempo directamente desde el reloj y actualiza a la GUI
-	public void ActualizarRelojGui(int minutos, int segundos) {
-		// TODO Auto-generated method stub
-			
 	}
 }
