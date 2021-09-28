@@ -34,21 +34,34 @@ public class Interfaz extends JFrame {
 	private JLabel lblPuntaje;
 	private JLabel lblTiempo;
 	
+	
+	////////////////
+	ImageIcon imagenFondo = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque L.png"))).getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH) );
+	ImageIcon imagenBloqueJ = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque J.png"))).getImage().getScaledInstance(20,20,Image.SCALE_SMOOTH) );
+	ImageIcon imagenBloqueZ = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque Z.png"))).getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH) );
+	ImageIcon imagenBloqueO = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque O.png"))).getImage().getScaledInstance(20,20,Image.SCALE_SMOOTH) );
+	ImageIcon imagenBloqueT = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque T.png"))).getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH) );
+	///////////////////
 	/**
 	 * Create the frame.
 	 */
-	public Interfaz(Logica newGame) {
+	public Interfaz() {
 		setTitle("Tetris");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/icono tetris 2.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		juego = newGame;
-		juego.setInterfaz(this);
-		grillaGrafica = new JLabel[21][10];
+		grillaGrafica = new JLabel[21][10];//
 		
 		for(int i = 0; i < grillaGrafica.length; i++)
-			for(int j = 0; j < grillaGrafica[0].length; j++)
-				grillaGrafica[i][j] = null;
+			for(int j = 0; j < grillaGrafica[0].length; j++) { //////////////////////////////
+				JLabel imagen = new JLabel("");
+				imagen.setIcon(imagenFondo);
+				imagen.setBounds(0, 0, 50, 50);
+				grillaGrafica[i][j] = imagen;
+			} ////////////////////////////////////////////////////////////////////////////////
+		
+		
+		
 		
 		setBounds(100, 100, 514, 475);
 		contentPane = new Panel();
@@ -62,6 +75,8 @@ public class Interfaz extends JFrame {
 		panelGrilla.setBounds(107, 0, 284, 436);
 		contentPane.add(panelGrilla);
 		panelGrilla.setLayout(new GridLayout(21, 10));
+		panelGrilla.setFocusable(true);
+        panelGrilla.requestFocusInWindow();
 		
 		JLabel lblPuntajeText = new JLabel("Puntaje: ");
 		lblPuntajeText.setFont(new Font("Wide Latin", Font.BOLD, 11));
@@ -89,6 +104,13 @@ public class Interfaz extends JFrame {
 		lblTiempo.setBounds(401, 49, 87, 19);
 		contentPane.add(lblTiempo);
 		
+		
+		
+		
+		iniciarGridLayout(); ////////////////////////////////////////
+		
+		grillaGrafica[0][0].setIcon(imagenBloqueJ);
+		
 		//Detecta acciones de teclado
 		KeyListener eventoTeclado = new KeyListener() {
 
@@ -101,22 +123,27 @@ public class Interfaz extends JFrame {
 				switch(e.getKeyCode()) {
 					case 37:{
 						juego.operar(0);
+						break;
 					}
 					
 					case 39:{
 						juego.operar(1);
+						break;
 					}
 					
 					case 40:{
 						juego.operar(2);
+						break;
 					}
 					
 					case 65:{
 						juego.operar(3);
+						break;
 					}
 					
 					case 68:{
 						juego.operar(4);
+						break;
 					}
 				}
 			}
@@ -132,10 +159,10 @@ public class Interfaz extends JFrame {
 	public void iniciarGridLayout() {
 		
 		
-		for(int j = 0; j < grillaGrafica[0].length; j++)
-			for(int i = 0; i < grillaGrafica.length; i++)
-				panelGrilla.add(grillaGrafica[i][j]);
-	}
+		for(int j = 0; j < grillaGrafica.length; j++)
+			for(int i = 0; i < (grillaGrafica[0].length); i++)//yytryty
+				panelGrilla.add(grillaGrafica[j][i]);
+	}//HOLA
 	
 	public void actualizarPuntajeGrafico(int puntos) {
 		lblPuntaje.setText(""+puntos);
@@ -148,4 +175,16 @@ public class Interfaz extends JFrame {
 		}else
 		lblTiempo.setText(minutos + ":"+ segundos);
 	}
+	
+	
+	public JLabel[][] getGrillaGrafica(){
+		return grillaGrafica;
+	}
+	
+	
+	public void setJuego(Logica juego) {
+		this.juego = juego;
+	}
+	
+	
 }

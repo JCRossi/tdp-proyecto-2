@@ -13,8 +13,8 @@ public class Launcher {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Logica nuevoJuego = new Logica();
-					Interfaz frame = new Interfaz(nuevoJuego);
+					Interfaz frame = new Interfaz();
+					Logica nuevoJuego = new Logica(frame);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

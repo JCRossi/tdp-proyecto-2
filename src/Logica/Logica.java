@@ -2,7 +2,13 @@ package Logica;
 
 import entidades.*;
 import GUI.Interfaz;
+
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.Random;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class Logica {
 	public final int MOVER_IZQUIERDA = 0;
@@ -20,22 +26,23 @@ public class Logica {
 	private Random rand;
 	private char[] listaTetriminos;
 	private boolean primerTetrimino;
+	private Bloque[] posAnterior;
 	
-	public Logica() {
+	public Logica(Interfaz interfaz) {
 		puntos = new Puntaje();
 		grilla = new Grilla();
 		reloj = new Reloj(this);
+		pantalla = interfaz;
+		pantalla.setJuego(this);
 		rand = new Random();
 		listaTetriminos = new char[] {'I', 'J', 'L', 'O', 'S', 'T', 'Z'};
 		primerTetrimino = true;
 		llamarNuevoTetrimino();
 		hiloReloj = new Thread(this.reloj); //No estoy seguro si es necesario guardar el hilo
 		hiloReloj.start();
+		posAnterior = new Bloque[4];
 	}
 	
-	public void setInterfaz(Interfaz interfaz) {
-		pantalla = interfaz;
-	}
 	
 	public void llamarNuevoTetrimino() {
 		int index, indexProx;
@@ -161,6 +168,7 @@ public class Logica {
 				}
 			}
 		}
+		actualizarTetriminoGrafico();
 	}
 	
 	public synchronized void operar(int operacion) {
@@ -177,8 +185,9 @@ public class Logica {
 				boolean puedeBajar = true;
 				int filasCompletadas = 0;
 				
+				guardarPosTetrimino();
 				puedeBajar = tetriminoActual.moverAbajo();
-				
+				actualizarTetriminoGrafico();
 				if(!puedeBajar) {
 					grilla.actualizarGrilla(tetriminoActual);
 					filasCompletadas = grilla.despejar(tetriminoActual.filasOcupadas());
@@ -225,7 +234,21 @@ public class Logica {
 
 	
 	public void actualizarTetriminoGrafico() {
-		//pantalla.metodoDeActualziacion(tetriminoActual);
+		
+	
+		JLabel[][] grillaG = pantalla.getGrillaGrafica();
+		Bloque[] bloquesTetrimino = tetriminoActual.getBloques();
+		/*
+		for(int i = 0; i<4;i++) {
+			bloquesTetrimino[i].getBloqueG().actualizar(7);
+			grillaG[posAnterior[i].getFila()][posAnterior[i].getColumna()].setIcon(bloquesTetrimino[i].getBloqueG().getBloqueGrafico());
+		}
+		
+		*/
+		
+		for(int i = 0; i<4;i++) {
+			grillaG[bloquesTetrimino[i].getFila()][bloquesTetrimino[i].getColumna()].setIcon(bloquesTetrimino[i].getBloqueG().getBloqueGrafico());
+		}
 	}
 	
 	public void actualizarGrillaGrafica() {
@@ -244,4 +267,16 @@ public class Logica {
 		reloj.frenarReloj();
 		//hiloReloj.stop();
 	}
+	
+	public void guardarPosTetrimino() {
+		//if()
+		Bloque[] posActual = tetriminoActual.getBloques();
+		for(int i = 0; i<4; i++) {
+			posAnterior[i] = posActual[i];
+			}
+		
+	}
+	
+	
+	
 }

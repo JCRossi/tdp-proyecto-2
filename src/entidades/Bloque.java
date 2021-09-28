@@ -27,5 +27,9 @@ public class Bloque {
 	public int getColumna() {
 		return columna;
 	}
+	
+	public BloqueGrafico getBloqueG() {
+		return imagenBloque;
+	}
 
 }

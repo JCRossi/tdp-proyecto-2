@@ -9,7 +9,7 @@ public class BloqueGrafico extends JLabel{
 	
 	public BloqueGrafico() {
 		grafico = new ImageIcon();
-		imagenes = new String[] {"/images/Bloque I.png", "/images/Bloque J.png", "/images/Bloque L.png", "/images/Bloque O.png", "/images/Bloque S.png", "/images/Bloque T.png", "/images/Bloque Z.png"};
+		imagenes = new String[] {"/images/Bloque I.png", "/images/Bloque J.png", "/images/Bloque L.png", "/images/Bloque O.png", "/images/Bloque S.png", "/images/Bloque T.png", "/images/Bloque Z.png","/images/Bloque L.png"};
 	}
 	
 	public void actualizar(int indice) {

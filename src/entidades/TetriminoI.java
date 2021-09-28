@@ -5,7 +5,7 @@ public class TetriminoI extends Tetrimino{
 	public TetriminoI(Grilla g) {
 		blocks = new Bloque[4];
 		for (int i=0; i<4; i++) 
-			blocks[i]= new Bloque(1,6-i,0);
+			blocks[i]= new Bloque(0,6-i,0);
 		rotation = 90;	
 		grilla = g;
 	}
