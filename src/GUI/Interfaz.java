@@ -91,7 +91,7 @@ public class Interfaz extends JFrame {
 		contentPane.add(lblPuntaje);
 		
 		JLabel lblRelojText = new JLabel("Tiempo: ");
-		lblRelojText.setFont(new Font("Wide Latin", Font.BOLD, 12));
+		lblRelojText.setFont(new Font("Wide Latin", Font.BOLD, 11));
 		lblRelojText.setForeground(Color.WHITE);
 		lblRelojText.setBounds(401, 10, 87, 37);
 		contentPane.add(lblRelojText);
@@ -104,6 +104,7 @@ public class Interfaz extends JFrame {
 		contentPane.add(lblTiempo);
 		
 		lblProximoTetrimino = new JLabel("");
+		lblProximoTetrimino.setHorizontalAlignment(SwingConstants.CENTER);
 		lblProximoTetrimino.setBounds(401, 79, 87, 47);
 		contentPane.add(lblProximoTetrimino);
 		
@@ -190,7 +191,7 @@ public class Interfaz extends JFrame {
 	public void actualizarProximoTetrimino(char tetrimino) {
 		switch(tetrimino) {
 			case 'I':
-				lblProximoTetrimino.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino I.png")).getImage().getScaledInstance(80, 50, Image.SCALE_SMOOTH))));
+				lblProximoTetrimino.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino I.png")).getImage().getScaledInstance(80, 25, Image.SCALE_SMOOTH))));
 				break;
 				
 			case 'J':
@@ -202,7 +203,7 @@ public class Interfaz extends JFrame {
 				break;
 				
 			case 'O':
-				lblProximoTetrimino.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino O.png")).getImage().getScaledInstance(80, 50, Image.SCALE_SMOOTH))));
+				lblProximoTetrimino.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino O.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH))));
 				break;
 				
 			case 'S':
