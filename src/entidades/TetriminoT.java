@@ -194,14 +194,14 @@ public class TetriminoT extends Tetrimino {
 				bloquesConflictivos[1][1]=columnaCentro;
 				bloquesConflictivos[2][0]=filaCentro+1;
 				bloquesConflictivos[2][1]=columnaCentro+1;
-				puedeBajar = grilla.chequearColision(bloquesConflictivos);
+				puedeBajar = !grilla.chequearColision(bloquesConflictivos);
 				if(puedeBajar) {
 					blocks[0].setFila(filaCentro+1);
 					blocks[1].setFila(filaCentro+1);
 					blocks[2].setFila(filaCentro);
 					blocks[3].setFila(filaCentro+1);
 				}
-			}
+			} else puedeBajar=false;
 			break;
 		}
 		
@@ -219,7 +219,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[2].setFila(filaCentro);
 					blocks[3].setFila(filaCentro+1);
 				}
-			}
+			} else puedeBajar=false;
 			break;
 		}
 
@@ -239,7 +239,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[2].setFila(filaCentro+1);
 					blocks[3].setFila(filaCentro+1);
 				}
-			}
+			} else puedeBajar=false;
 			break;
 		}
 
@@ -257,7 +257,7 @@ public class TetriminoT extends Tetrimino {
 					blocks[2].setFila(filaCentro+1);
 					blocks[3].setFila(filaCentro);
 				}
-			}
+			} else puedeBajar=false;
 		}
 		
 		}

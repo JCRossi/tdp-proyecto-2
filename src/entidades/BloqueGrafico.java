@@ -1,5 +1,8 @@
 package entidades;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -13,7 +16,8 @@ public class BloqueGrafico extends JLabel{
 	}
 	
 	public void actualizar(int indice) {
-		ImageIcon icon = new ImageIcon(BloqueGrafico.class.getResource(imagenes[indice]));
+		//ImageIcon icon = new ImageIcon(BloqueGrafico.class.getResource(imagenes[indice]));
+		ImageIcon icon = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(BloqueGrafico.class.getResource(imagenes[indice]))).getImage().getScaledInstance(20,20,Image.SCALE_SMOOTH) );
 		setBloqueGrafico(icon);
 	}
 	

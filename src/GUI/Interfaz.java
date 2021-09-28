@@ -36,7 +36,7 @@ public class Interfaz extends JFrame {
 	
 	
 	////////////////
-	ImageIcon imagenFondo = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque L.png"))).getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH) );
+	ImageIcon imagenFondo = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque T.png"))).getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH) );
 	ImageIcon imagenBloqueJ = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque J.png"))).getImage().getScaledInstance(20,20,Image.SCALE_SMOOTH) );
 	ImageIcon imagenBloqueZ = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque Z.png"))).getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH) );
 	ImageIcon imagenBloqueO = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque O.png"))).getImage().getScaledInstance(20,20,Image.SCALE_SMOOTH) );

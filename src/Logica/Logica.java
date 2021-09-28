@@ -50,7 +50,6 @@ public class Logica {
 		if(primerTetrimino) {
 			index = rand.nextInt(listaTetriminos.length);
 			indexProx = rand.nextInt(listaTetriminos.length);
-			
 			switch(listaTetriminos[index]) {
 				case 'I':{
 					tetriminoActual = new TetriminoI(grilla);
@@ -174,50 +173,84 @@ public class Logica {
 	public synchronized void operar(int operacion) {
 		switch(operacion) {
 			case MOVER_IZQUIERDA:
+				borrarTetriminoGrafico();
 				tetriminoActual.moverIzquierda();
+				actualizarTetriminoGrafico();
 				break;
 				
 			case MOVER_DERECHA:
+				borrarTetriminoGrafico();
 				tetriminoActual.moverDerecha();
+				actualizarTetriminoGrafico();
 				break;
 				
 			case MOVER_ABAJO:{
 				boolean puedeBajar = true;
 				int filasCompletadas = 0;
-				
+				borrarTetriminoGrafico();
 				guardarPosTetrimino();
 				puedeBajar = tetriminoActual.moverAbajo();
 				actualizarTetriminoGrafico();
 				if(!puedeBajar) {
 					grilla.actualizarGrilla(tetriminoActual);
 					filasCompletadas = grilla.despejar(tetriminoActual.filasOcupadas());
-					actualizarPuntaje(filasCompletadas);
+					if(filasCompletadas>0) {
+						refrescarGrillaGrafica();
+						actualizarPuntaje(filasCompletadas);
+					}
 					llamarNuevoTetrimino();
+					
 				}
 				break;
 			}
 			
 	
 			case ROTAR_IZQUIERDA:
+				borrarTetriminoGrafico();
 				tetriminoActual.rotarIzquierda();
+				actualizarTetriminoGrafico();
 				break;
 				
 			case ROTAR_DERECHA:
+				borrarTetriminoGrafico();
 				tetriminoActual.rotarDerecha();
+				actualizarTetriminoGrafico();
 				break;
 		}
 	}
 	
+	private void borrarTetriminoGrafico() {
+		JLabel[][] grillaG = pantalla.getGrillaGrafica();
+		Bloque[] bloquesTetrimino = tetriminoActual.getBloques();
+		for(int i = 0; i<4;i++) {
+			grillaG[bloquesTetrimino[i].getFila()][bloquesTetrimino[i].getColumna()].setIcon(new ImageIcon(BloqueGrafico.class.getResource("/images/Bloque T.png")));
+		}
+	}
+	
+	private void refrescarGrillaGrafica(){
+		JLabel[][] grillaG = pantalla.getGrillaGrafica();
+		Bloque[][] matriz = grilla.getMatriz();
+		Bloque bloqueActual;
+		for(int fila=20; fila>=0; fila--) {
+			for(int i=0; i<10; i++) {
+				bloqueActual = matriz[fila][i];
+				if(bloqueActual!=null) {
+					grillaG[fila][i].setIcon(bloqueActual.getBloqueG().getBloqueGrafico());
+				}
+				else
+					grillaG[fila][i].setIcon(new ImageIcon(BloqueGrafico.class.getResource("/images/Bloque T.png")));
+			}
+		}
+	}
+
+
 	/*
 	 * Actualiza el puntaje del juego en base a las filas que se hayan completado
 	 * @param filasCompletadas Cantidad de filas que se completaron
 	 */
 	public void actualizarPuntaje(int filasCompletadas) {
 		switch(filasCompletadas) {
-			case 0:
-				break;
 			case 1:
-				break;
 			case 2:
 				puntos.setPuntaje(puntos.getPuntaje() + (filasCompletadas * 100));
 				break;

@@ -35,6 +35,10 @@ public class Grilla {
 			matriz[bloque.getFila()][bloque.getColumna()] = bloque; 
 		}
 	}
+	
+	public Bloque[][] getMatriz(){
+		return matriz;
+	}
 
 	//Falta que actualice grilla
 	public int despejar(int[] filasAChequear) {
@@ -75,6 +79,7 @@ public class Grilla {
 					filaVacia=false;
 				}
 			}
+			fila--;
 		}
 		
 	}

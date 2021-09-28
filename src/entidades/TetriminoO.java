@@ -59,7 +59,7 @@ public class TetriminoO extends Tetrimino{
 				for(int i = 0; i<4; i++)
 					blocks[i].setFila(blocks[i].getFila()+1);
 			}
-		}
+		} else puedeBajar=false;
 		return puedeBajar;
 	}
 

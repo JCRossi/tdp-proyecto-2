@@ -336,7 +336,7 @@ public class TetriminoJ extends Tetrimino{
 					blocks[2].setFila(filaReferencia);
 					blocks[2].setColumna(columnaReferencia);
 					
-					blocks[3].setFila(filaReferencia-1);
+					blocks[3].setFila(filaReferencia+1);
 					blocks[3].setColumna(columnaReferencia);
 					
 					rotation = 90;
@@ -386,9 +386,9 @@ public class TetriminoJ extends Tetrimino{
 				bloquesConflictivos[0][0] = filaReferencia+1;
 				bloquesConflictivos[0][1] = columnaReferencia+1;
 				bloquesConflictivos[1][0] = filaReferencia;
-				bloquesConflictivos[1][1] = columnaReferencia +1;
+				bloquesConflictivos[1][1] = columnaReferencia+1;
 				bloquesConflictivos[2][0] = filaReferencia;
-				bloquesConflictivos[2][1] = columnaReferencia -1;
+				bloquesConflictivos[2][1] = columnaReferencia-1;
 				
 				
 				if( !grilla.chequearColision(bloquesConflictivos) ) {
@@ -401,6 +401,8 @@ public class TetriminoJ extends Tetrimino{
 					
 					blocks[3].setFila(filaReferencia);
 					blocks[3].setColumna(columnaReferencia-1);
+					
+					blocks[2].setColumna(columnaReferencia);
 					
 					rotation = 180;
 				}
@@ -673,7 +675,7 @@ public class TetriminoJ extends Tetrimino{
 					blocks[2].setColumna(columnaReferencia+1);
 					
 					blocks[3].setFila(filaReferencia+1);
-					blocks[3].setColumna(columnaReferencia+3);
+					blocks[3].setColumna(columnaReferencia+2);
 					
 					rotation = 0;
 					
@@ -789,6 +791,8 @@ public class TetriminoJ extends Tetrimino{
 					
 					blocks[3].setFila(filaReferencia);
 					blocks[3].setColumna(columnaReferencia-2);
+					
+					rotation = 180;
 	
 				}
 				
