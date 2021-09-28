@@ -1,7 +1,6 @@
 package GUI;
 
 import Logica.*;
-import entidades.*;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -17,10 +16,6 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
-import java.awt.Graphics;
-import java.awt.Dimension;
-import javax.swing.BoxLayout;
-import java.awt.FlowLayout;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -28,11 +23,9 @@ import javax.swing.SwingConstants;
 public class Interfaz extends JFrame {
 
 	private JPanel contentPane, panelGrilla;
-	private ImageIcon fondoTetrisInGame;
 	private Logica juego;
 	private JLabel[][] grillaGrafica;
-	private JLabel lblPuntaje;
-	private JLabel lblTiempo;
+	private JLabel lblPuntaje, lblTiempo;
 	
 	/**
 	 * Create the frame.
@@ -62,6 +55,8 @@ public class Interfaz extends JFrame {
 		panelGrilla.setBounds(107, 0, 284, 436);
 		contentPane.add(panelGrilla);
 		panelGrilla.setLayout(new GridLayout(21, 10));
+		panelGrilla.setFocusable(true);
+		panelGrilla.requestFocusInWindow();
 		
 		JLabel lblPuntajeText = new JLabel("Puntaje: ");
 		lblPuntajeText.setFont(new Font("Wide Latin", Font.BOLD, 11));
@@ -77,7 +72,7 @@ public class Interfaz extends JFrame {
 		contentPane.add(lblPuntaje);
 		
 		JLabel lblRelojText = new JLabel("Tiempo: ");
-		lblRelojText.setFont(new Font("Wide Latin", Font.BOLD, 12));
+		lblRelojText.setFont(new Font("Wide Latin", Font.BOLD, 11));
 		lblRelojText.setForeground(Color.WHITE);
 		lblRelojText.setBounds(401, 10, 87, 37);
 		contentPane.add(lblRelojText);
@@ -102,22 +97,27 @@ public class Interfaz extends JFrame {
 					case 37:{
 						juego.operar(0);
 					}
+					break;
 					
 					case 39:{
 						juego.operar(1);
 					}
+					break;
 					
 					case 40:{
 						juego.operar(2);
 					}
+					break;
 					
 					case 65:{
 						juego.operar(3);
 					}
+					break;
 					
 					case 68:{
 						juego.operar(4);
 					}
+					break;
 				}
 			}
 
@@ -130,8 +130,6 @@ public class Interfaz extends JFrame {
 	}
 	
 	public void iniciarGridLayout() {
-		
-		
 		for(int j = 0; j < grillaGrafica[0].length; j++)
 			for(int i = 0; i < grillaGrafica.length; i++)
 				panelGrilla.add(grillaGrafica[i][j]);
