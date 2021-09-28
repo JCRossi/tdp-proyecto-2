@@ -50,124 +50,67 @@ public class Logica {
 		if(primerTetrimino) {
 			index = rand.nextInt(listaTetriminos.length);
 			indexProx = rand.nextInt(listaTetriminos.length);
-			switch(listaTetriminos[index]) {
-				case 'I':{
-					tetriminoActual = new TetriminoI(grilla);
-					break;
-				}
-				
-				case 'J':{
-					tetriminoActual = new TetriminoJ(grilla);
-					break;
-				}
-
-				case 'L':{
-					tetriminoActual = new TetriminoL(grilla);
-					break;
-				}
-				
-				case 'O':{
-					tetriminoActual = new TetriminoO(grilla);
-					break;
-				}
-				
-				case 'S':{
-					tetriminoActual = new TetriminoS(grilla);
-					break;
-				}
-				
-				case 'T':{
-					tetriminoActual = new TetriminoT(grilla);
-					break;
-				}
-				
-				case 'Z':{
-					tetriminoActual = new TetriminoZ(grilla);
-					break;
-				}
-			}
-			
-			switch(listaTetriminos[indexProx]) {
-				case 'I':{
-					proximoTetrimino = new TetriminoI(grilla);
-					break;
-				}
-				
-				case 'J':{
-					proximoTetrimino = new TetriminoJ(grilla);
-					break;
-				}
-	
-				case 'L':{
-					proximoTetrimino = new TetriminoL(grilla);
-					break;
-				}
-				
-				case 'O':{
-					proximoTetrimino = new TetriminoO(grilla);
-					break;
-				}
-				
-				case 'S':{
-					proximoTetrimino = new TetriminoS(grilla);
-					break;
-				}
-				
-				case 'T':{
-					proximoTetrimino = new TetriminoT(grilla);
-					break;
-				}
-				
-				case 'Z':{
-					proximoTetrimino = new TetriminoZ(grilla);
-					break;
-				}
-			}
-			
+			tetriminoActual = crearTetrimino(index);
+			proximoTetrimino = crearTetrimino(indexProx);
 			primerTetrimino = false;
+			pantalla.actualizarProximoTetrimino(listaTetriminos[indexProx]);
 		}
 		else {
 			tetriminoActual = proximoTetrimino;
 			index = rand.nextInt(listaTetriminos.length);
+			proximoTetrimino = crearTetrimino(index);
 			
-			switch(listaTetriminos[index]) {
-				case 'I':{
-					proximoTetrimino = new TetriminoI(grilla);
-					break;
-				}
-				
-				case 'J':{
-					proximoTetrimino = new TetriminoJ(grilla);
-					break;
-				}
-
-				case 'L':{
-					proximoTetrimino = new TetriminoL(grilla);
-					break;
-				}
-				
-				case 'O':{
-					proximoTetrimino = new TetriminoO(grilla);
-					break;
-				}
-				
-				case 'S':{
-					proximoTetrimino = new TetriminoS(grilla);
-					break;
-				}
-				
-				case 'T':{
-					proximoTetrimino = new TetriminoT(grilla);
-					break;
-				}
-				
-				case 'Z':{
-					proximoTetrimino = new TetriminoZ(grilla);
-					break;
-				}
+			
+			pantalla.actualizarProximoTetrimino(listaTetriminos[index]);
+		}
+		
+		if(chequearFinalizacionJuego())
+			finalizarJuego();
+		else
+			actualizarTetriminoGrafico();
+	}
+	
+	private Tetrimino crearTetrimino(int indice) {
+		Tetrimino tetrimino = null;
+		
+		switch(listaTetriminos[indice]) {
+			case 'I':{
+				tetrimino = new TetriminoI(grilla);
+				break;
+			}
+			
+			case 'J':{
+				tetrimino = new TetriminoJ(grilla);
+				break;
+			}
+	
+			case 'L':{
+				tetrimino = new TetriminoL(grilla);
+				break;
+			}
+			
+			case 'O':{
+				tetrimino = new TetriminoO(grilla);
+				break;
+			}
+			
+			case 'S':{
+				tetrimino = new TetriminoS(grilla);
+				break;
+			}
+			
+			case 'T':{
+				tetrimino = new TetriminoT(grilla);
+				break;
+			}
+			
+			case 'Z':{
+				tetrimino = new TetriminoZ(grilla);
+				break;
 			}
 		}
-		actualizarTetriminoGrafico();
+		
+		return tetrimino;
 	}
 	
 	public synchronized void operar(int operacion) {
@@ -191,9 +134,11 @@ public class Logica {
 				guardarPosTetrimino();
 				puedeBajar = tetriminoActual.moverAbajo();
 				actualizarTetriminoGrafico();
+				
 				if(!puedeBajar) {
 					grilla.actualizarGrilla(tetriminoActual);
 					filasCompletadas = grilla.despejar(tetriminoActual.filasOcupadas());
+					
 					if(filasCompletadas>0) {
 						refrescarGrillaGrafica();
 						actualizarPuntaje(filasCompletadas);
@@ -223,7 +168,7 @@ public class Logica {
 		JLabel[][] grillaG = pantalla.getGrillaGrafica();
 		Bloque[] bloquesTetrimino = tetriminoActual.getBloques();
 		for(int i = 0; i<4;i++) {
-			grillaG[bloquesTetrimino[i].getFila()][bloquesTetrimino[i].getColumna()].setIcon(new ImageIcon(BloqueGrafico.class.getResource("/images/Bloque T.png")));
+			grillaG[bloquesTetrimino[i].getFila()][bloquesTetrimino[i].getColumna()].setIcon(new ImageIcon(BloqueGrafico.class.getResource("/images/imagenFondoGrilla.png")));
 		}
 	}
 	
@@ -238,7 +183,7 @@ public class Logica {
 					grillaG[fila][i].setIcon(bloqueActual.getBloqueG().getBloqueGrafico());
 				}
 				else
-					grillaG[fila][i].setIcon(new ImageIcon(BloqueGrafico.class.getResource("/images/Bloque T.png")));
+					grillaG[fila][i].setIcon(new ImageIcon(BloqueGrafico.class.getResource("/images/imagenFondoGrilla.png")));
 			}
 		}
 	}
@@ -286,9 +231,28 @@ public class Logica {
 			
 	}
 	
+	private boolean chequearFinalizacionJuego() {
+		Bloque[] bloques = tetriminoActual.getBloques();
+		Bloque bloque;
+		Bloque[][] grillaBloques = grilla.getMatriz();
+		boolean colision = false;
+		
+		for(int i = 0; i < 4 && !colision; i++) {
+			bloque = bloques[i];
+			
+			if(bloque.getFila() == 0)
+				if(grillaBloques[0][bloque.getColumna()] != null)
+					colision = true;
+		}
+		
+		return colision;
+	}
+	
+	//Falta deshabilitar acciones por pantalla
 	public void finalizarJuego() {
 		//...
 		//...
+		pantalla.finalizarJuego();
 		reloj.frenarReloj();
 		//hiloReloj.stop();
 	}

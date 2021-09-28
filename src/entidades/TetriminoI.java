@@ -203,5 +203,4 @@ public class TetriminoI extends Tetrimino{
 		}
 		return filasOcupadas;
 	}
-
 }
