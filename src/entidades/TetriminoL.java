@@ -456,7 +456,7 @@ public class TetriminoL extends Tetrimino {
 			break;
 		}
 		case 270:{
-			if(blocks[1].getFila() != 9) {//CASO 1
+			if(blocks[1].getColumna() != 9) {//CASO 1
 				
 				int[][] bloquesConflictivos = new int[3][2];
 				int filaReferencia = blocks[3].getFila();
@@ -484,7 +484,7 @@ public class TetriminoL extends Tetrimino {
 					blocks[3].setColumna(columnaReferencia-1);
 					rotation = 0;
 				}
-					
+	
 				
 			}
 			

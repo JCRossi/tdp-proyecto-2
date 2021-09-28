@@ -270,15 +270,7 @@ public class Logica {
 		
 	
 		JLabel[][] grillaG = pantalla.getGrillaGrafica();
-		Bloque[] bloquesTetrimino = tetriminoActual.getBloques();
-		/*
-		for(int i = 0; i<4;i++) {
-			bloquesTetrimino[i].getBloqueG().actualizar(7);
-			grillaG[posAnterior[i].getFila()][posAnterior[i].getColumna()].setIcon(bloquesTetrimino[i].getBloqueG().getBloqueGrafico());
-		}
-		
-		*/
-		
+		Bloque[] bloquesTetrimino = tetriminoActual.getBloques();		
 		for(int i = 0; i<4;i++) {
 			grillaG[bloquesTetrimino[i].getFila()][bloquesTetrimino[i].getColumna()].setIcon(bloquesTetrimino[i].getBloqueG().getBloqueGrafico());
 		}
