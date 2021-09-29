@@ -67,7 +67,7 @@ public class Interfaz extends JFrame {
 		panelGrilla = new JPanel();
 		panelGrilla.setForeground(null);
 		panelGrilla.setBackground(Color.BLACK);
-		panelGrilla.setBounds(240, 80, 400, 880);
+		panelGrilla.setBounds(240, 107, 400, 860);
 		contentPane.add(panelGrilla);
 		panelGrilla.setLayout(new GridLayout(21, 10, 1, 1));
 		panelGrilla.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -77,14 +77,14 @@ public class Interfaz extends JFrame {
 		JLabel lblPuntajeText = new JLabel("Puntaje: ");
 		lblPuntajeText.setFont(new Font("Wide Latin", Font.BOLD, 20));
 		lblPuntajeText.setForeground(Color.WHITE);
-		lblPuntajeText.setBounds(40, 140, 160, 80);
+		lblPuntajeText.setBounds(30, 140, 160, 80);
 		contentPane.add(lblPuntajeText);
 		
 		lblPuntaje = new JLabel(""+0);
 		lblPuntaje.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPuntaje.setFont(new Font("Wide Latin", Font.BOLD, 20));
 		lblPuntaje.setForeground(Color.WHITE);
-		lblPuntaje.setBounds(35, 180, 160, 80);
+		lblPuntaje.setBounds(25, 180, 160, 80);
 		contentPane.add(lblPuntaje);
 		
 		JLabel lblRelojText = new JLabel("Tiempo: ");
@@ -109,17 +109,17 @@ public class Interfaz extends JFrame {
 		JLabel lblHoldText = new JLabel("Guardado: ");
 		lblHoldText.setFont(new Font("Wide Latin", Font.BOLD, 15));
 		lblHoldText.setForeground(Color.WHITE);
-		lblHoldText.setBounds(40, 340, 160, 80);
+		lblHoldText.setBounds(30, 340, 160, 80);
 		contentPane.add(lblHoldText);
 		
 		lblProximoTetrimino = new JLabel("");
 		lblProximoTetrimino.setHorizontalAlignment(SwingConstants.CENTER);
-		lblProximoTetrimino.setBounds(685, 420, 160, 80);
+		lblProximoTetrimino.setBounds(692, 420, 160, 80);
 		contentPane.add(lblProximoTetrimino);
 		
 		lblTetriminoGuardado = new JLabel("");
 		lblTetriminoGuardado.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTetriminoGuardado.setBounds(25, 420, 160, 80);
+		lblTetriminoGuardado.setBounds(27, 420, 160, 80);
 		contentPane.add(lblTetriminoGuardado);
 		
 		
