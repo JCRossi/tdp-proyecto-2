@@ -143,6 +143,11 @@ public class Interfaz extends JFrame {
 						juego.operar(4);
 						break;
 					}
+					
+					case 32:{
+						juego.operar(5);
+						break;
+					}
 				}
 			}
 

@@ -16,6 +16,7 @@ public class Logica {
 	public final int MOVER_ABAJO = 2;
 	public final int ROTAR_IZQUIERDA = 3;
 	public final int ROTAR_DERECHA = 4;
+	public final int COLOCAR_TETRIMINO = 5;
 	
 	private Interfaz pantalla;
 	private Puntaje puntos;
@@ -169,6 +170,14 @@ public class Logica {
 			case ROTAR_DERECHA:
 				pantalla.borrarTetriminoGrafico(posiciones());
 				tetriminoActual.rotarDerecha();
+				pantalla.actualizarTetriminoGrafico(posiciones(), tetriminoActual.getBloques()[0].getBloqueG().getBloqueGrafico());
+				break;
+				
+			case COLOCAR_TETRIMINO:
+				pantalla.borrarTetriminoGrafico(posiciones());
+				boolean puedeBajar = true;
+				while(puedeBajar) 
+					puedeBajar= tetriminoActual.moverAbajo();
 				pantalla.actualizarTetriminoGrafico(posiciones(), tetriminoActual.getBloques()[0].getBloqueG().getBloqueGrafico());
 				break;
 		}
