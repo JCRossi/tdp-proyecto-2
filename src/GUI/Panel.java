@@ -11,7 +11,7 @@ public class Panel extends JPanel {
 	
 	public void paint(Graphics g) {
 		fondo = new ImageIcon(Interfaz.class.getResource("/images/fondoTetrisInGame.png")).getImage();
-		g.drawImage(fondo, 0, 0, getWidth(), getHeight(), this);
+		g.drawImage(fondo, 0, 0, 880, 1000, this);
 		setOpaque(false);
 		super.paint(g);
 	}

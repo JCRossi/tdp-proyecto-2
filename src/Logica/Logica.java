@@ -17,7 +17,9 @@ public class Logica {
 	public final int ROTAR_IZQUIERDA = 3;
 	public final int ROTAR_DERECHA = 4;
 	public final int COLOCAR_TETRIMINO = 5;
+	public final int GUARDAR_TETRIMINO = 6;
 	
+	private int index, indexProx, tetriminoGuardado;
 	private Interfaz pantalla;
 	private Puntaje puntos;
 	private Grilla grilla;
@@ -26,7 +28,7 @@ public class Logica {
 	private Thread hiloReloj;//Potencialmente innecesario
 	private Random rand;
 	private char[] listaTetriminos;
-	private boolean primerTetrimino;
+	private boolean primerTetrimino, guardarTetrimino;
 	private Bloque[] posAnterior;
 	
 	public Logica(Interfaz interfaz) {
@@ -42,11 +44,12 @@ public class Logica {
 		hiloReloj = new Thread(this.reloj); //No estoy seguro si es necesario guardar el hilo
 		hiloReloj.start();
 		posAnterior = new Bloque[4];
+		tetriminoGuardado=-1;
+		guardarTetrimino=true;
 	}
 	
 	
 	public void llamarNuevoTetrimino() {
-		int index, indexProx;
 		
 		if(primerTetrimino) {
 			index = rand.nextInt(listaTetriminos.length);
@@ -58,11 +61,12 @@ public class Logica {
 		}
 		else {
 			tetriminoActual = proximoTetrimino;
-			index = rand.nextInt(listaTetriminos.length);
-			proximoTetrimino = crearTetrimino(index);
+			index=indexProx;
+			indexProx = rand.nextInt(listaTetriminos.length);
+			proximoTetrimino = crearTetrimino(indexProx);
 			
 			
-			pantalla.actualizarProximoTetrimino(listaTetriminos[index]);
+			pantalla.actualizarProximoTetrimino(listaTetriminos[indexProx]);
 		}
 		
 		if(chequearFinalizacionJuego())
@@ -149,7 +153,7 @@ public class Logica {
 				if(!puedeBajar) {
 					grilla.actualizarPosicionBloques(tetriminoActual.getBloques());
 					filasCompletadas = grilla.checkearFilasCompletadas(tetriminoActual.filasOcupadas());
-					
+					guardarTetrimino=true;
 					if(filasCompletadas[0]>0) {
 						pantalla.refrescarGrillaGrafica(filasCompletadas);
 						actualizarPuntaje(filasCompletadas[0]);
@@ -180,6 +184,26 @@ public class Logica {
 					puedeBajar= tetriminoActual.moverAbajo();
 				pantalla.actualizarTetriminoGrafico(posiciones(), tetriminoActual.getBloques()[0].getBloqueG().getBloqueGrafico());
 				break;
+				
+			case GUARDAR_TETRIMINO:
+			int aux=0;
+			if(guardarTetrimino) {
+				if(tetriminoGuardado==-1){
+					pantalla.borrarTetriminoGrafico(posiciones());
+					tetriminoGuardado=index;
+					llamarNuevoTetrimino();
+					guardarTetrimino=false;	
+				} else {
+					pantalla.borrarTetriminoGrafico(posiciones());
+					aux=tetriminoGuardado;
+					tetriminoGuardado=index;
+					tetriminoActual = crearTetrimino(aux);
+					guardarTetrimino=false;
+				}
+				pantalla.actualizarTetriminoGuardado(listaTetriminos[tetriminoGuardado]);
+			}
+					
+			break;
 		}
 	}
 	
