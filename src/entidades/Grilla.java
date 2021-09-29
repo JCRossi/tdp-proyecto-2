@@ -27,8 +27,7 @@ public class Grilla {
 		return colisiona;	
 	}
 	
-	public void actualizarGrilla(Tetrimino actual) {
-		Bloque[] bloques = actual.getBloques();
+	public void actualizarPosicionBloques(Bloque[] bloques) {
 		
 		for(int i = 0; i < 4; i++) {
 			Bloque bloque = bloques[i];
@@ -40,12 +39,13 @@ public class Grilla {
 		return matriz;
 	}
 
-	//Falta que actualice grilla
-	public int despejar(int[] filasAChequear) {
-		int filasDespejadas = 0;
+	public int[] checkearFilasCompletadas(int[] filasAChequear) {
+		int cantLineas = filasAChequear.length;
+		int filasDespejadas[] = new int[cantLineas+1];
+		filasDespejadas[0]=0;
 		boolean filaCompletada = true;
 		
-		for(int i = 0; i < filasAChequear.length; i++) {
+		for(int i = 0; i < cantLineas; i++) {
 			for(int j = 0; j < columnas && filaCompletada; j++) {
 				if(matriz[filasAChequear[i]][j] == null)
 					filaCompletada = false;
@@ -53,9 +53,10 @@ public class Grilla {
 			
 			if(filaCompletada) {
 				actualizarFilas(filasAChequear[i]);
-				filasDespejadas++;
-			}
-				
+				filasDespejadas[0]++;
+				filasDespejadas[i+1]=filasAChequear[i];
+			} else
+				filasDespejadas[i+1]=-1;
 			filaCompletada=true;		
 		}
 		

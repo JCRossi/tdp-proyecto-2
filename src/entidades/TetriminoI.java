@@ -95,10 +95,10 @@ public class TetriminoI extends Tetrimino{
 				bloquesConflictivos[2][1] = 1;
 				bloquesConflictivos[3][1] = 0;
 				if (grilla.chequearColision(bloquesConflictivos)) {
-					bloquesConflictivos[0][1] = columna+1;
-					bloquesConflictivos[1][1] = columna;
-					bloquesConflictivos[2][1] = columna-1;
-					bloquesConflictivos[3][1] = columna-2;
+					bloquesConflictivos[0][0]--;
+					bloquesConflictivos[1][0]--;
+					bloquesConflictivos[2][0]--;
+					bloquesConflictivos[3][0]--;
 				}
 			} else if(columna>7) {
 				bloquesConflictivos[0][1] = 9;
@@ -106,10 +106,10 @@ public class TetriminoI extends Tetrimino{
 				bloquesConflictivos[2][1] = 7;
 				bloquesConflictivos[3][1] = 6;
 				if (grilla.chequearColision(bloquesConflictivos)) {
-					bloquesConflictivos[0][1] = columna+1;
-					bloquesConflictivos[1][1] = columna;
-					bloquesConflictivos[2][1] = columna-1;
-					bloquesConflictivos[3][1] = columna-2;
+					bloquesConflictivos[0][0]--;
+					bloquesConflictivos[1][0]--;
+					bloquesConflictivos[2][0]--;
+					bloquesConflictivos[3][0]--;
 				}
 			} else {
 				bloquesConflictivos[0][1] = columna+2;
@@ -117,10 +117,10 @@ public class TetriminoI extends Tetrimino{
 				bloquesConflictivos[2][1] = columna;
 				bloquesConflictivos[3][1] = columna-1;
 				if (grilla.chequearColision(bloquesConflictivos)) {
-					bloquesConflictivos[0][1] = columna+1;
-					bloquesConflictivos[1][1] = columna;
-					bloquesConflictivos[2][1] = columna-1;
-					bloquesConflictivos[3][1] = columna-2;
+					bloquesConflictivos[0][0]--;
+					bloquesConflictivos[1][0]--;
+					bloquesConflictivos[2][0]--;
+					bloquesConflictivos[3][0]--;
 					
 				}
 			}

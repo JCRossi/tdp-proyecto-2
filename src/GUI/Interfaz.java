@@ -36,10 +36,6 @@ public class Interfaz extends JFrame {
 	
 	////////////////
 	ImageIcon imagenFondo = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/imagenFondoGrilla.png"))).getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH) );
-	ImageIcon imagenBloqueJ = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque J.png"))).getImage().getScaledInstance(20,20,Image.SCALE_SMOOTH) );
-	ImageIcon imagenBloqueZ = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque Z.png"))).getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH) );
-	ImageIcon imagenBloqueO = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque O.png"))).getImage().getScaledInstance(20,20,Image.SCALE_SMOOTH) );
-	ImageIcon imagenBloqueT = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/Bloque T.png"))).getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH) );
 	///////////////////
 	/**
 	 * Create the frame.
@@ -222,5 +218,35 @@ public class Interfaz extends JFrame {
 	
 	public void finalizarJuego() {
 		panelGrilla.setFocusable(false);
+	}
+
+	public void borrarTetriminoGrafico(int[][] posiciones) {
+		for(int i = 0; i<4;i++) {
+			grillaGrafica[posiciones[i][0]][posiciones[i][1]].setIcon(imagenFondo);
+		}
+	}
+	
+	public void refrescarGrillaGrafica(int[] filasCompletadas){
+		for (int i=1; i<filasCompletadas.length; i++) {
+			if(filasCompletadas[i]!=-1)
+				actualizarFilasGraficas(filasCompletadas[i]);
+		}
+	}
+	
+	private void actualizarFilasGraficas(int fila) {
+		for(; fila>=0 ; fila--) {
+			for(int i=0; i<10; i++) {
+				if (fila==0)
+					grillaGrafica[fila][i].setIcon(imagenFondo);
+				else
+					grillaGrafica[fila][i].setIcon(grillaGrafica[fila-1][i].getIcon());
+			}
+		}
+	}
+
+	public void actualizarTetriminoGrafico(int[][] posiciones, ImageIcon iconoBloque ) {		
+		for(int i = 0; i<4;i++) {
+			grillaGrafica[posiciones[i][0]][posiciones[i][1]].setIcon(iconoBloque);
+		}
 	}
 }
