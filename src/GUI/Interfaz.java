@@ -36,6 +36,13 @@ public class Interfaz extends JFrame {
 	
 	////////////////
 	ImageIcon imagenFondo = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/imagenFondoGrilla.png"))).getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH) );
+	ImageIcon imagenTetriminoI = new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/Tetrimino I.png")).getImage().getScaledInstance(112, 28, Image.SCALE_SMOOTH));
+	ImageIcon imagenTetriminoJ = new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/Tetrimino J.png")).getImage().getScaledInstance(84, 56, Image.SCALE_SMOOTH));
+	ImageIcon imagenTetriminoL = new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/Tetrimino L.png")).getImage().getScaledInstance(84, 56, Image.SCALE_SMOOTH));
+	ImageIcon imagenTetriminoO = new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/Tetrimino O.png")).getImage().getScaledInstance(56, 56, Image.SCALE_SMOOTH));
+	ImageIcon imagenTetriminoS = new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/Tetrimino S.png")).getImage().getScaledInstance(84, 56, Image.SCALE_SMOOTH));
+	ImageIcon imagenTetriminoT = new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/Tetrimino T.png")).getImage().getScaledInstance(84, 56, Image.SCALE_SMOOTH));
+	ImageIcon imagenTetriminoZ = new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/Tetrimino Z.png")).getImage().getScaledInstance(84, 56, Image.SCALE_SMOOTH));
 	///////////////////
 	/**
 	 * Create the frame.
@@ -58,16 +65,17 @@ public class Interfaz extends JFrame {
 		
 		
 		
-		setBounds(540, 5, 896, 1040);
+		setBounds(378, 4, 631, 739);
 		contentPane = new Panel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
+		setResizable(false);
 		contentPane.setLayout(null);
 		
 		panelGrilla = new JPanel();
 		panelGrilla.setForeground(null);
 		panelGrilla.setBackground(Color.BLACK);
-		panelGrilla.setBounds(240, 107, 400, 860);
+		panelGrilla.setBounds(167, 85, 280, 589);
 		contentPane.add(panelGrilla);
 		panelGrilla.setLayout(new GridLayout(21, 10, 1, 1));
 		panelGrilla.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -75,51 +83,51 @@ public class Interfaz extends JFrame {
         panelGrilla.requestFocusInWindow();
 		
 		JLabel lblPuntajeText = new JLabel("Puntaje: ");
-		lblPuntajeText.setFont(new Font("Wide Latin", Font.BOLD, 20));
+		lblPuntajeText.setFont(new Font("Wide Latin", Font.BOLD, 13));
 		lblPuntajeText.setForeground(Color.WHITE);
-		lblPuntajeText.setBounds(30, 140, 160, 80);
+		lblPuntajeText.setBounds(21, 98, 112, 56);
 		contentPane.add(lblPuntajeText);
 		
 		lblPuntaje = new JLabel(""+0);
 		lblPuntaje.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPuntaje.setFont(new Font("Wide Latin", Font.BOLD, 20));
+		lblPuntaje.setFont(new Font("Wide Latin", Font.BOLD, 13));
 		lblPuntaje.setForeground(Color.WHITE);
-		lblPuntaje.setBounds(25, 180, 160, 80);
+		lblPuntaje.setBounds(17, 126, 112, 56);
 		contentPane.add(lblPuntaje);
 		
 		JLabel lblRelojText = new JLabel("Tiempo: ");
-		lblRelojText.setFont(new Font("Wide Latin", Font.BOLD, 20));
+		lblRelojText.setFont(new Font("Wide Latin", Font.BOLD, 13));
 		lblRelojText.setForeground(Color.WHITE);
-		lblRelojText.setBounds(700, 140, 160, 80);
+		lblRelojText.setBounds(490, 98, 112, 56);
 		contentPane.add(lblRelojText);
 		
 		lblTiempo = new JLabel(""+0+":"+0+0);
 		lblTiempo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTiempo.setFont(new Font("Wide Latin", Font.BOLD, 20));
+		lblTiempo.setFont(new Font("Wide Latin", Font.BOLD, 13));
 		lblTiempo.setForeground(Color.WHITE);
-		lblTiempo.setBounds(690, 180, 160, 80);
+		lblTiempo.setBounds(483, 126, 112, 56);
 		contentPane.add(lblTiempo);
 		
 		JLabel lblProxText = new JLabel("Proximo: ");
-		lblProxText.setFont(new Font("Wide Latin", Font.BOLD, 15));
+		lblProxText.setFont(new Font("Wide Latin", Font.BOLD, 12));
 		lblProxText.setForeground(Color.WHITE);
-		lblProxText.setBounds(700, 340, 160, 80);
+		lblProxText.setBounds(487, 225, 160, 80);
 		contentPane.add(lblProxText);
 		
 		JLabel lblHoldText = new JLabel("Guardado: ");
-		lblHoldText.setFont(new Font("Wide Latin", Font.BOLD, 15));
+		lblHoldText.setFont(new Font("Wide Latin", Font.BOLD, 12));
 		lblHoldText.setForeground(Color.WHITE);
-		lblHoldText.setBounds(30, 340, 160, 80);
+		lblHoldText.setBounds(16, 225, 160, 80);
 		contentPane.add(lblHoldText);
 		
 		lblProximoTetrimino = new JLabel("");
 		lblProximoTetrimino.setHorizontalAlignment(SwingConstants.CENTER);
-		lblProximoTetrimino.setBounds(692, 420, 160, 80);
+		lblProximoTetrimino.setBounds(484, 294, 112, 56);
 		contentPane.add(lblProximoTetrimino);
 		
 		lblTetriminoGuardado = new JLabel("");
 		lblTetriminoGuardado.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTetriminoGuardado.setBounds(27, 420, 160, 80);
+		lblTetriminoGuardado.setBounds(20, 294, 112, 56);
 		contentPane.add(lblTetriminoGuardado);
 		
 		
@@ -215,31 +223,31 @@ public class Interfaz extends JFrame {
 	public void actualizarProximoTetrimino(char tetrimino) {
 		switch(tetrimino) {
 			case 'I':
-				lblProximoTetrimino.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino I.png")).getImage().getScaledInstance(160, 40, Image.SCALE_SMOOTH))));
+				lblProximoTetrimino.setIcon(imagenTetriminoI);
 				break;
 				
 			case 'J':
-				lblProximoTetrimino.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino J.png")).getImage().getScaledInstance(120, 80, Image.SCALE_SMOOTH))));
+				lblProximoTetrimino.setIcon(imagenTetriminoJ);
 				break;
 				
 			case 'L':
-				lblProximoTetrimino.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino L.png")).getImage().getScaledInstance(120, 80, Image.SCALE_SMOOTH))));
+				lblProximoTetrimino.setIcon(imagenTetriminoL);
 				break;
 				
 			case 'O':
-				lblProximoTetrimino.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino O.png")).getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH))));
+				lblProximoTetrimino.setIcon(imagenTetriminoO);
 				break;
 				
 			case 'S':
-				lblProximoTetrimino.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino S.png")).getImage().getScaledInstance(120, 80, Image.SCALE_SMOOTH))));
+				lblProximoTetrimino.setIcon(imagenTetriminoS);
 				break;
 				
 			case 'T':
-				lblProximoTetrimino.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino T.png")).getImage().getScaledInstance(120, 80, Image.SCALE_SMOOTH))));
+				lblProximoTetrimino.setIcon(imagenTetriminoT);
 				break;
 				
 			case 'Z':
-				lblProximoTetrimino.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino Z.png")).getImage().getScaledInstance(120, 80, Image.SCALE_SMOOTH))));
+				lblProximoTetrimino.setIcon(imagenTetriminoZ);
 				break;
 		}
 	}
@@ -247,33 +255,33 @@ public class Interfaz extends JFrame {
 	public void actualizarTetriminoGuardado(char tetrimino) {
 		switch(tetrimino) {
 			case 'I':
-				lblTetriminoGuardado.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino I.png")).getImage().getScaledInstance(160, 40, Image.SCALE_SMOOTH))));
+				lblTetriminoGuardado.setIcon(imagenTetriminoI);
 				break;
 				
 			case 'J':
-				lblTetriminoGuardado.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino J.png")).getImage().getScaledInstance(120, 80, Image.SCALE_SMOOTH))));
+				lblTetriminoGuardado.setIcon(imagenTetriminoJ);
 				break;
-				
+			
 			case 'L':
-				lblTetriminoGuardado.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino L.png")).getImage().getScaledInstance(120, 80, Image.SCALE_SMOOTH))));
+				lblTetriminoGuardado.setIcon(imagenTetriminoL);
 				break;
-				
+			
 			case 'O':
-				lblTetriminoGuardado.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino O.png")).getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH))));
+				lblTetriminoGuardado.setIcon(imagenTetriminoO);
 				break;
-				
+			
 			case 'S':
-				lblTetriminoGuardado.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino S.png")).getImage().getScaledInstance(120, 80, Image.SCALE_SMOOTH))));
+				lblTetriminoGuardado.setIcon(imagenTetriminoS);
 				break;
-				
+			
 			case 'T':
-				lblTetriminoGuardado.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino T.png")).getImage().getScaledInstance(120, 80, Image.SCALE_SMOOTH))));
+				lblTetriminoGuardado.setIcon(imagenTetriminoT);
 				break;
-				
+			
 			case 'Z':
-				lblTetriminoGuardado.setIcon((new ImageIcon (new ImageIcon(Interfaz.class.getResource("/images/Tetrimino Z.png")).getImage().getScaledInstance(120, 80, Image.SCALE_SMOOTH))));
+				lblTetriminoGuardado.setIcon(imagenTetriminoZ);
 				break;
-		}
+	}
 	}
 	
 	public void finalizarJuego() {
