@@ -96,6 +96,11 @@ public class Reloj implements Runnable {
 		continuar = false;
 	}
 
+	public void reanudarReloj() {
+		continuar = true;
+		
+	}
+
 }
 
 	

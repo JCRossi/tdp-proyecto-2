@@ -28,11 +28,11 @@ import javax.swing.SwingConstants;
 
 public class Interfaz extends JFrame {
 
-	private JPanel contentPane, panelGrilla;
+	private JPanel contentPane, panelGrilla, panelPausa;
 	private ImageIcon fondoTetrisInGame;
 	private Logica juego;
 	private JLabel[][] grillaGrafica;
-	private JLabel lblPuntaje;
+	private JLabel lblPuntaje, imgPausa;
 	private JLabel lblTiempo, lblProximoTetrimino, lblTetriminoGuardado;
 	
 	////////////////
@@ -82,6 +82,8 @@ public class Interfaz extends JFrame {
 		panelGrilla.setBorder(new EmptyBorder(0, 0, 0, 0));
 		panelGrilla.setFocusable(true);
         panelGrilla.requestFocusInWindow();
+
+
 		
 		JLabel lblPuntajeText = new JLabel("Puntaje: ");
 		lblPuntajeText.setFont(new Font("Wide Latin", Font.BOLD, 13));
@@ -131,7 +133,22 @@ public class Interfaz extends JFrame {
 		lblTetriminoGuardado.setBounds(20, 294, 112, 56);
 		contentPane.add(lblTetriminoGuardado);
 		
-		
+		panelPausa = new JPanel();
+		panelPausa.setForeground(null);
+		panelPausa.setLayout(null);
+		panelPausa.setBackground(Color.BLACK);
+		panelPausa.setOpaque(true);
+		panelPausa.setBounds(167, 85, 280, 589);
+		panelPausa.setForeground(null);
+		contentPane.add(panelPausa);
+		panelPausa.setBorder(new EmptyBorder(0, 0, 0, 0));
+		panelPausa.setVisible(false);
+
+		imgPausa= new JLabel("");
+		imgPausa.setIcon(new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/pausaTetris.png")).getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
+		imgPausa.setVisible(true);
+		imgPausa.setBounds(40, 150, 200, 200);
+		panelPausa.add(imgPausa);
 		
 		
 		iniciarGridLayout(); ////////////////////////////////////////
@@ -180,6 +197,14 @@ public class Interfaz extends JFrame {
 						juego.operar(6);
 						break;
 					}
+					
+					case 80:{
+					}
+					
+					case 27:{
+						juego.operar(7);
+						break;
+					}
 				}
 			}
 
@@ -189,6 +214,7 @@ public class Interfaz extends JFrame {
 		};
 		
 		panelGrilla.addKeyListener(eventoTeclado);
+		panelPausa.addKeyListener(eventoTeclado);
 	}
 	
 	public void iniciarGridLayout() {
@@ -320,4 +346,20 @@ public class Interfaz extends JFrame {
 			grillaGrafica[posiciones[i][0]][posiciones[i][1]].setIcon(iconoBloque);
 		}
 	}
+
+	public void mostrarPausa() {
+		panelGrilla.setVisible(false);
+		panelPausa.setVisible(true);	
+		panelPausa.setFocusable(true);
+        panelPausa.requestFocusInWindow();
+	}
+	
+	public void quitarPausa() {
+		panelGrilla.setVisible(true);
+		panelPausa.setVisible(false);
+		panelGrilla.setFocusable(true);
+        panelGrilla.requestFocusInWindow();
+	}
+	
+	
 }

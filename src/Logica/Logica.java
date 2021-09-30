@@ -18,6 +18,7 @@ public class Logica {
 	public final int ROTAR_DERECHA = 4;
 	public final int COLOCAR_TETRIMINO = 5;
 	public final int GUARDAR_TETRIMINO = 6;
+	public final int PAUSAR_JUEGO = 7;
 	
 	private int index, indexProx, tetriminoGuardado;
 	private Interfaz pantalla;
@@ -28,8 +29,7 @@ public class Logica {
 	private Thread hiloReloj;//Potencialmente innecesario
 	private Random rand;
 	private char[] listaTetriminos;
-	private boolean primerTetrimino, guardarTetrimino;
-	private Bloque[] posAnterior;
+	private boolean primerTetrimino, guardarTetrimino, juegoPausado;
 	
 	public Logica(Interfaz interfaz) {
 		puntos = new Puntaje();
@@ -43,9 +43,9 @@ public class Logica {
 		llamarNuevoTetrimino();
 		hiloReloj = new Thread(this.reloj); //No estoy seguro si es necesario guardar el hilo
 		hiloReloj.start();
-		posAnterior = new Bloque[4];
 		tetriminoGuardado=-1;
 		guardarTetrimino=true;
+		juegoPausado=false;
 	}
 	
 	
@@ -130,6 +130,24 @@ public class Logica {
 	}
 	
 	public synchronized void operar(int operacion) {
+		
+		if(operacion==7) {
+			if(juegoPausado) {
+				reloj.reanudarReloj();
+				hiloReloj = new Thread(this.reloj);
+				hiloReloj.start();
+				juegoPausado=false;
+				pantalla.quitarPausa();
+			} else {
+				reloj.frenarReloj();
+				juegoPausado=true;
+				pantalla.mostrarPausa();
+				
+			}
+		}
+		
+		if (!juegoPausado) {
+		
 		switch(operacion) {
 			case MOVER_IZQUIERDA:
 				pantalla.borrarTetriminoGrafico(posiciones());
@@ -205,6 +223,8 @@ public class Logica {
 					
 			break;
 		}
+		
+		}
 	}
 	
 	
@@ -243,9 +263,7 @@ public class Logica {
 	}
 	
 	private boolean chequearFinalizacionJuego() {
-		//Cual de los 2 usar??????????????????????
 		Bloque[] bloques = tetriminoActual.getBloques();
-		//Bloque[] bloques = proximoTetrimino.getBloques();
 		Bloque bloque;
 		Bloque[][] grillaBloques = grilla.getMatriz();
 		boolean colision = false;
@@ -266,7 +284,15 @@ public class Logica {
 		//...
 		pantalla.finalizarJuego(puntos.getPuntaje());
 		reloj.frenarReloj();
+		juegoPausado=true;
 		//hiloReloj.stop();
+	}
+	
+	public void reiniciarJuego() {
+		reloj = new Reloj(this);
+		hiloReloj = new Thread(this.reloj);
+		hiloReloj.start();
+		juegoPausado=false;
 	}
 	
 
