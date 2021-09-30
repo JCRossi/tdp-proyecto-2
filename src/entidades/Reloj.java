@@ -33,7 +33,7 @@ public class Reloj implements Runnable {
 			int faltanteParaSegundo = 0;
 			while(this.continuar) {
 				//Me fijo la cantidad de veces que entra una caida en un segundo y las ejecuto
-				while((sumatoriaParaAumentarSegundos+velocidadCaida)<=1000 ){
+				while((sumatoriaParaAumentarSegundos+velocidadCaida)<=1000){
 					Thread.sleep(velocidadCaida);
 					avisarCaidaTetrimino();
 					sumatoriaParaAumentarSegundos= (int) (sumatoriaParaAumentarSegundos +velocidadCaida);

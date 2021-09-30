@@ -243,7 +243,9 @@ public class Logica {
 	}
 	
 	private boolean chequearFinalizacionJuego() {
+		//Cual de los 2 usar??????????????????????
 		Bloque[] bloques = tetriminoActual.getBloques();
+		//Bloque[] bloques = proximoTetrimino.getBloques();
 		Bloque bloque;
 		Bloque[][] grillaBloques = grilla.getMatriz();
 		boolean colision = false;
@@ -259,11 +261,10 @@ public class Logica {
 		return colision;
 	}
 	
-	//Falta deshabilitar acciones por pantalla
 	public void finalizarJuego() {
 		//...
 		//...
-		pantalla.finalizarJuego();
+		pantalla.finalizarJuego(puntos.getPuntaje());
 		reloj.frenarReloj();
 		//hiloReloj.stop();
 	}

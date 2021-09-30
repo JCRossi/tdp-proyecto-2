@@ -8,6 +8,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
@@ -284,8 +285,10 @@ public class Interfaz extends JFrame {
 	}
 	}
 	
-	public void finalizarJuego() {
+	public void finalizarJuego(int puntosFinales) {
 		panelGrilla.setFocusable(false);
+		//ImageIcon gameOver = new ImageIcon(Interfaz.class.getResource("/images/GameOver.png"));
+		JOptionPane.showMessageDialog(null, "Puntuacion: "+puntosFinales, "Game Over", 0, new ImageIcon((new ImageIcon(Interfaz.class.getResource("/images/GameOver.png"))).getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
 	}
 
 	public void borrarTetriminoGrafico(int[][] posiciones) {
