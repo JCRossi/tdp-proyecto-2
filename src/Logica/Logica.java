@@ -26,7 +26,7 @@ public class Logica {
 	private Grilla grilla;
 	private Reloj reloj;
 	private Tetrimino tetriminoActual, proximoTetrimino;
-	private Thread hiloReloj;//Potencialmente innecesario
+	private Thread hiloReloj;
 	private Random rand;
 	private char[] listaTetriminos;
 	private boolean primerTetrimino, guardarTetrimino, juegoPausado;
@@ -288,14 +288,6 @@ public class Logica {
 		//hiloReloj.stop();
 	}
 	
-	public void reiniciarJuego() {
-		reloj = new Reloj(this);
-		hiloReloj = new Thread(this.reloj);
-		hiloReloj.start();
-		juegoPausado=false;
-	}
-	
-
 	
 	
 	
