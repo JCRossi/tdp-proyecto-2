@@ -1,40 +1,22 @@
 package entidades;
-
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import javax.sound.sampled.*;
 
-import sun.audio.*;
-
-public class PlayMusic implements Runnable {
-
-
-    private String path;
-    
-    public PlayMusic() {
-        path = "Music//Tetris.wav";
-   }
-    
-    public static void run(String path) {
-    	InputStream music;
-        try {
-            music = new FileInputStream(new File(path));
-            AudioStream audios= new AudioStream(music);
-            AudioPlayer.player.start(audios);
-
-        }
-        catch(Exception e) {
-
-            System.out.println("Error musical");
-        }
-
-    }
-
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
+public class PlayMusic{
+	
+	
+	public PlayMusic( File archiv ) {
 		
+		try{
+			 AudioInputStream audioStream = AudioSystem.getAudioInputStream(archiv);
+			 Clip clip = AudioSystem.getClip();
+			 clip.open(audioStream);
+			 clip.loop(clip.LOOP_CONTINUOUSLY);
+		}
+		catch(Exception ex)	{  
+			ex.printStackTrace();
+		}
 	}
 
-
+	
 }

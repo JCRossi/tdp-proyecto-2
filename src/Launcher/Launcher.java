@@ -1,9 +1,11 @@
 package Launcher;
 
 import java.awt.EventQueue;
+import java.io.File;
 
 import GUI.*;
 import Logica.*;
+import entidades.PlayMusic;
 
 public class Launcher {
 	/**
@@ -16,6 +18,8 @@ public class Launcher {
 					Interfaz frame = new Interfaz();
 					Logica nuevoJuego = new Logica(frame);
 					frame.setVisible(true);
+					File archivo = new File("src/Music/Tetris.wav");
+					PlayMusic p = new PlayMusic(archivo);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
