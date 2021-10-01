@@ -1,11 +1,6 @@
 package GUI;
 
 import Logica.*;
-import entidades.*;
-
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -18,24 +13,18 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
-import java.awt.Graphics;
-import java.awt.Dimension;
-import javax.swing.BoxLayout;
-import java.awt.FlowLayout;
-import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
 public class Interfaz extends JFrame {
 
 	private JPanel contentPane, panelGrilla, panelPausa;
-	private ImageIcon fondoTetrisInGame;
 	private Logica juego;
 	private JLabel[][] grillaGrafica;
 	private JLabel lblPuntaje, imgPausa;
 	private JLabel lblTiempo, lblProximoTetrimino, lblTetriminoGuardado;
 	
-	////////////////
+	
 	ImageIcon imagenFondo = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/imagenFondoGrilla.png"))).getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH) );
 	ImageIcon imagenTetriminoI = new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/Tetrimino I.png")).getImage().getScaledInstance(112, 28, Image.SCALE_SMOOTH));
 	ImageIcon imagenTetriminoJ = new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/Tetrimino J.png")).getImage().getScaledInstance(84, 56, Image.SCALE_SMOOTH));
@@ -44,7 +33,7 @@ public class Interfaz extends JFrame {
 	ImageIcon imagenTetriminoS = new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/Tetrimino S.png")).getImage().getScaledInstance(84, 56, Image.SCALE_SMOOTH));
 	ImageIcon imagenTetriminoT = new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/Tetrimino T.png")).getImage().getScaledInstance(84, 56, Image.SCALE_SMOOTH));
 	ImageIcon imagenTetriminoZ = new ImageIcon(new ImageIcon(Interfaz.class.getResource("/images/Tetrimino Z.png")).getImage().getScaledInstance(84, 56, Image.SCALE_SMOOTH));
-	///////////////////
+	
 	/**
 	 * Create the frame.
 	 */
@@ -53,15 +42,15 @@ public class Interfaz extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/images/icono tetris 2.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		grillaGrafica = new JLabel[21][10];//
+		grillaGrafica = new JLabel[21][10];
 		
 		for(int i = 0; i < grillaGrafica.length; i++)
-			for(int j = 0; j < grillaGrafica[0].length; j++) { //////////////////////////////
+			for(int j = 0; j < grillaGrafica[0].length; j++) { 
 				JLabel imagen = new JLabel("");
 				imagen.setIcon(imagenFondo);
 				imagen.setBounds(0, 0, 50, 50);
 				grillaGrafica[i][j] = imagen;
-			} ////////////////////////////////////////////////////////////////////////////////
+			} 
 		
 		
 		
@@ -151,7 +140,7 @@ public class Interfaz extends JFrame {
 		panelPausa.add(imgPausa);
 		
 		
-		iniciarGridLayout(); ////////////////////////////////////////
+		iniciarGridLayout(); 
 		
 		//Detecta acciones de teclado
 		KeyListener eventoTeclado = new KeyListener() {
@@ -218,12 +207,10 @@ public class Interfaz extends JFrame {
 	}
 	
 	public void iniciarGridLayout() {
-		
-		
 		for(int j = 0; j < grillaGrafica.length; j++)
 			for(int i = 0; i < (grillaGrafica[0].length); i++)
 				panelGrilla.add(grillaGrafica[j][i]);
-	}//HOLA
+	}
 	
 	public void actualizarPuntajeGrafico(int puntos) {
 		lblPuntaje.setText(""+puntos);
@@ -313,7 +300,6 @@ public class Interfaz extends JFrame {
 	
 	public void finalizarJuego(int puntosFinales) {
 		panelGrilla.setFocusable(false);
-		//ImageIcon gameOver = new ImageIcon(Interfaz.class.getResource("/images/GameOver.png"));
 		JOptionPane.showMessageDialog(null, "Puntuacion: "+puntosFinales, "Game Over", 0, new ImageIcon((new ImageIcon(Interfaz.class.getResource("/images/GameOver.png"))).getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
 	}
 

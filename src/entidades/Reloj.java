@@ -2,15 +2,6 @@ package entidades;
 
 import Logica.*;
 
-/*
-Debemos hacer algo semejante a esto cuando creamos el reloj. Siendo this una instancia de Logica.
-	
-	this.reloj = new Reloj(this);
-	Thread hiloReloj = new Thread(this.reloj);
-	hiloReloj.start();
-
-*/
-
 public class Reloj implements Runnable {
 	private boolean continuar;
 	private Logica juego;

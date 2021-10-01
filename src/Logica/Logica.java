@@ -3,12 +3,7 @@ package Logica;
 import entidades.*;
 import GUI.Interfaz;
 
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.util.Random;
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 public class Logica {
 	public final int MOVER_IZQUIERDA = 0;
@@ -41,7 +36,7 @@ public class Logica {
 		listaTetriminos = new char[] {'I', 'J', 'L', 'O', 'S', 'T', 'Z'};
 		primerTetrimino = true;
 		llamarNuevoTetrimino();
-		hiloReloj = new Thread(this.reloj); //No estoy seguro si es necesario guardar el hilo
+		hiloReloj = new Thread(this.reloj);
 		hiloReloj.start();
 		tetriminoGuardado=-1;
 		guardarTetrimino=true;
@@ -75,6 +70,13 @@ public class Logica {
 			pantalla.actualizarTetriminoGrafico(posiciones(), tetriminoActual.getBloques()[0].getBloqueG().getBloqueGrafico());
 	}
 	
+	/*Retorna un arreglo con las posiciones del tetrimino actual
+	 * 	               fila    	columna		____3_4_5________
+	 * Ej:  bloque 0:  0			5		0	    *
+	 * 		bloque 1:  1			5	=	1	* * *
+	 * 		bloque 2:  1			4
+	 * 		bloque 3:  1			3
+	 */
 	private int[][] posiciones() {
 		Bloque[] bloques = tetriminoActual.getBloques();
 		int[][] posiciones = new int[4][2];
@@ -280,12 +282,9 @@ public class Logica {
 	}
 	
 	public void finalizarJuego() {
-		//...
-		//...
 		pantalla.finalizarJuego(puntos.getPuntaje());
 		reloj.frenarReloj();
 		juegoPausado=true;
-		//hiloReloj.stop();
 	}
 	
 	

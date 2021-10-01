@@ -26,7 +26,4 @@ public class Launcher {
 			}
 		});
 	}
-		/*Logica nuevoJuego = new Logica();
-		Interfaz presentacion = new Interfaz(nuevoJuego);
-    	presentacion.setVisible(true);*/
 }

@@ -16,7 +16,6 @@ public class BloqueGrafico extends JLabel{
 	}
 	
 	public void actualizar(int indice) {
-		//ImageIcon icon = new ImageIcon(BloqueGrafico.class.getResource(imagenes[indice]));
 		ImageIcon icon = new ImageIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(BloqueGrafico.class.getResource(imagenes[indice]))).getImage().getScaledInstance(28,28,Image.SCALE_DEFAULT) );
 		setBloqueGrafico(icon);
 	}
